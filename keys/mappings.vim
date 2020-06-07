@@ -89,7 +89,7 @@ inoremap <silent> <C-[>  <esc>
 "
 "
 "
-" <leader> i.e. \ mappigs
+" <leader> i.e. \ mappigs {{{
 nnoremap <leader>f  :NERDTreeFind<CR>
 nnoremap <leader>n  :NERDTreeToggle<CR>
 noremap  <leader><leader> :only<CR>
