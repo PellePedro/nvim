@@ -1,0 +1,73 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "rust": {
+      "command": "rls",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "yaml": {
+      "command": "yaml-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["yaml", "yaml.ansible"],
+      "trace.server": "verbose",
+      "settings": {
+        "yaml": {
+          "trace": {
+            "server": "verbose"
+          },
+          "schemas": {
+            "kubernetes": "/**",
+            "http://json.schemastore.org/ansible-stable-2.5": "infra_gil/*"
+          },
+          "format": {
+            "enable": true
+          },
+          "validate": true,
+          "completion": true,
+          "hover": true
+        }
+      },
+    },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  },
+  "python.jediEnabled": false,
+  "coc.preferences.hoverTarget": "echo",
+  "suggest.snippetIndicator": "🌟",
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "λ",
+  "codeLens.enable": true,
+}
