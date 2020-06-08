@@ -6,7 +6,6 @@ set autoindent                          " Good auto indent
 set background=dark                     " tell vim what the background color looks like
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set cmdheight=2
-set cmdheight=2                         " More space for displaying messages
 set conceallevel=0                      " So that I can see `` in markdown files
 set cursorline                          " Enable highlighting of the current line
 set encoding=utf-8                      " The encoding displayed
@@ -33,9 +32,16 @@ set splitbelow                          " Horizontal splits will automatically b
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
 set tabstop=2                           " Insert 2 spaces for a tab
-set timeoutlen=100                      " By default timeoutlen is 1000 ms
-set updatetime=300                      " Faster completion
+"set timeoutlen=100                      " By default timeoutlen is 1000 ms
+"set updatetime=300                      " Faster completion
+set noswapfile
+set colorcolumn=100
 
+"" ========================= None printable characters {{{
+set list
+set listchars=tab:▶\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
+" }}}
 
 " You can't stop me
 cmap w!! w !sudo tee %
