@@ -63,7 +63,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-sneak'
 Plug 'ntpeters/vim-better-whitespace'
 
-
+Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 
 
