@@ -2,46 +2,32 @@
 
 
 
-## Install Neovim
+## Install Neovim and Prerequsits
 
-- On Mac
-
-  ```
-  brew install neovim
-  ```
 - Fedora
 
-  ```
-  sudo dnf install neovim
-  ```
+cat <<-EOF | sudo bash
+	dnf update  -y
+	dnf install -y direnv ripgrep fzf zsh git
+	dnf install -y tree wget xz
+	dnf install -y gcc make git
+	dnf install -y vifm ShellCheck
+	dnf install -y python3 python3-pip python3-devel
+	dnf install -y ruby ruby-devel rubygems
+	dnf install -y neovim nodejs
+	EOF
 
-- Ubuntu
 
-  ```
-  sudo apt install neovim
+cat <<-EOF | bash
+	pip3 install --user --upgrade pynvim
+	npm i -g neovim
+	EOF
   ```
 
 
 ## Clone this repo into your config
 
 ```
-git clone https://github.com/pellepedro/nvim.git ~/.config/nvim
+git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
 ```
-
-## Install python & node support
-
-```
-pip install pynvim
-```
-
-```
-npm i -g neovim
-```
-
-
-## List of programs you should install
-
-- ripgrep
-- fzf
-- lazy git
 

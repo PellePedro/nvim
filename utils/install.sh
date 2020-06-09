@@ -20,9 +20,9 @@ installnodearch() { \
 installnode() { \
   echo "Installing node..."
   [ "$(uname)" == "Darwin" ] && installnodemac
+  [[ awk -F= '/^ID=/ {print $2}' =~ (fedora) ]]
   [  -n "$(uname -a | grep Ubuntu)" ] && installnodeubuntu
   [ -f "/etc/arch-release" ] && installnodearch
-  [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ] && echo "Windows not currently supported"
   sudo npm i -g neovim
 }
 
