@@ -15,7 +15,7 @@ function! ColorScheme()
     let g:nord_italic_comments = 1
     let g:nord_italic = 1
     let g:nord_cursor_line_number_background = 1
-    colorscheme nord
+    silent! colorscheme nord
     let g:airline_theme='nord'
     "let g:lightline = {}
     "let g:lightline.colorscheme = 'nord'
@@ -23,7 +23,7 @@ function! ColorScheme()
 
   if  g:VIM_COLOR_SCHEME ==# 'gruvbox'
     set background=dark
-    colorscheme gruvbox-material
+    silent! colorscheme gruvbox-material
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
