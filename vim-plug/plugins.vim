@@ -64,6 +64,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'airblade/vim-rooter'
+Plug 'stefandtw/quickfix-reflector.vim'
+
 Plug 'christoomey/vim-tmux-navigator'
 
 
