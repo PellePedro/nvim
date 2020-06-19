@@ -39,9 +39,13 @@ vnoremap <S-Tab> <gv
 " Keep selection when indenting/outdenting.
 vnoremap > >gv
 vnoremap < <gv
-"
+
+" map p to past last yanked text
+noremap p ""p
 " copy to system clipboard
 noremap gy "+y
+noremap <C-c> "+y
+
 " copy whole file to system clipboard
 nnoremap gY gg"+yG
 "
