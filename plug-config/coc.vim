@@ -11,14 +11,18 @@ runtime coc-snippets.vim
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <Leader>d :CocList diagnostics<CR>
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <leader>r <Plug>(coc-rename)
-nmap <silent> <a-g> :echo b:coc_current_function<Cr>
+inoremap <silent><expr> <leader>r coc#refresh()
+nnoremap <silent> <leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <leader>rr <Plug>(coc-refactor)
+nnoremap <silent> <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <a-g> :echo b:coc_current_function<Cr>
 
 " command! -nargs=0 Format :call CocAction('format')
 

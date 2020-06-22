@@ -92,19 +92,12 @@ inoremap <silent> <C-q>  <ESC>
 inoremap <silent> <C-[>  <esc>
 "
 "
+" }}}
 "
 " <leader> i.e. \ mappigs {{{
 nnoremap <leader>f  :NERDTreeFind<CR>
 nnoremap <leader>n  :NERDTreeToggle<CR>
 noremap  <leader><leader> :only<CR>
-inoremap <silent><expr> <leader>r coc#refresh()
-nnoremap <leader>rn <Plug>(coc-rename)
-nnoremap <silent> <leader>j <Plug>(coc-diagnostic-prev)
-nnoremap <silent> <leader>k <Plug>(coc-diagnostic-next)
-nnoremap <silent> <leader>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <leader>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <leader>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <leader>rr <Plug>(coc-refactor)
 nnoremap <silent> <leader>z  :EditVifm<CR>
 "
 " }}}
