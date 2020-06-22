@@ -40,7 +40,7 @@ vnoremap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
 
-" map p to past last yanked text
+" map p to past last yanked text (fix when using ocs52)
 noremap p ""p
 " copy to system clipboard
 noremap gy "+y
@@ -129,7 +129,7 @@ nnoremap <space>gf :diffget //2<CR>
 nnoremap <space>gj :diffget //3<CR>
 nnoremap <space>q  :q<CR>
 nnoremap <space>w  :w<CR>
-nnoremap <space>v  :%s/\s\+$//e<CR>
+nnoremap <space>w  :%s/\s\+$//e<CR>
 nnoremap <space>gm <Plug>(git-messenger)
 nnoremap <Leader>gb :<C-u>call gitblame#echo()<CR>
 "nnoremap <silent> <expr> <space><space> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"

@@ -1,4 +1,4 @@
-# Nvim Configuration
+g Nvim Configuration
 
 
 
@@ -30,4 +30,26 @@ cat <<-EOF | bash
 ```
 git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
 ```
+
+
+# Key Bindings
+
+
+
+## Language Server 
+
+|   Key	 | Description  	|
+|--------|------------------|
+| \ + o  |  View Outline    |
+
+
+## Vista Mappings 
+
+|   Key	       | Description            	|                                                |
+|--------------|----------------------------|------------------------------------------------|
+| <space> vo   | Start Vista                | nnoremap <space>vo  :Vista coc<CR>             |                                                |
+| <space> vf   | Vista finder               | nnoremap <Space>vf  :Vista finder<CR>          |
+| <space> vq   | Vista close                | nnoremap <Space>vq  :Vista focus<CR>:close<CR> |
+| <space> vs   | Vista show                 | nnoremap <Space>vs  :Vista show<CR>            |
+| <space> vv   | Vista focus                | nooremap <Space>vv  :Vista focus<CR>           |    
 
