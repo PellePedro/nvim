@@ -121,6 +121,7 @@ nnoremap <space>s :Gstatus<CR>
 nnoremap <space>gf :diffget //2<CR>
 nnoremap <space>gj :diffget //3<CR>
 nnoremap <space>q  :q<CR>
+nnoremap <space>u  :UndotreeToggle<CR>
 nnoremap <space>w  :w<CR>
 nnoremap <space>w  :%s/\s\+$//e<CR>
 nnoremap <space>gm <Plug>(git-messenger)

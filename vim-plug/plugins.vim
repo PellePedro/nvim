@@ -61,6 +61,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-sneak'
+Plug 'mbbill/undotree'
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'airblade/vim-rooter'

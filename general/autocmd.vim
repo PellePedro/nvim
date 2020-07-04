@@ -1,4 +1,4 @@
-" I``ndentation``
+" Indentation
 au BufNewFile,BufRead *.go  setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
 au BufNewFile,BufRead *.sh  setlocal   et ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
@@ -18,6 +18,8 @@ au BufNewFile,BufRead *.rst set textwidth=75
 au BufNewFile,BufRead *.rst syntax spell toplevel
 au BufNewFile,BufRead *.rst setlocal spell
 
+" Auto save whenever text is changed
+autocmd TextChanged,TextChangedI <buffer> silent write
 
 "" Remove trailing whitespaces
 func! DeleteTrailingWS()

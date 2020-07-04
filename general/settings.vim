@@ -21,7 +21,7 @@ set mouse=a                             " Enable your mouse
 set nobackup                            " This is recommended by coc
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set noswapfile
-set nowrap                              " Display long lines as just one line
+set wrap                              " Display long lines as just one line
 set nowritebackup                       " This is recommended by coc
 set number relativenumber               " Line numbers
 set pumheight=10                        " Makes popup menu smaller
@@ -34,6 +34,8 @@ set smartindent                         " Makes indenting smart
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
+set undodir=~/.vim/undodir              " undo directory
+set undofile
 set t_Co=256                            " Support 256 colors
 set tabstop=2                           " Insert 2 spaces for a tab
 syntax enable                           " Enables syntax highlighing
@@ -48,4 +50,15 @@ set showbreak=↪
 " You can't stop me
 cmap w!! w !sudo tee %
 
+
+set undodir=~/.vim/undodir
+set backupdir=~/.vim/backup
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
 
