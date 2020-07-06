@@ -22,7 +22,7 @@ source $HOME/.config/nvim/plug-config/sneak.vim
 "source $HOME/.config/nvim/plug-config/start-screen.vim
 "source $HOME/.config/nvim/plug-config/vim-router.vim
 
-source $HOME/.config/nvim/plug-config/vista.vim
+"source $HOME/.conI##fig/nvim/plug-config/vista.vim
 
 
 :call SwitchColorScheme('gruvbox')
