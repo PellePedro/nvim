@@ -107,7 +107,7 @@ nmap gs  :Gstatus<CR>
 " =======================  '\' Mappings        ============================== {{{
 "|    Key       | Description                   |                                                             |
 "|--------------|-------------------------------|-------------------------------------------------------------|
-"|   \\         | Maximize this view            | nnmap \\ :only<cr>                                          |
+"|   \\         | Maximize this view            | nmap \\ :only<cr>                                          |
 "|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<cr>:pwd<cr>                              |
 "|   \w         | Search <cword> recursive      | nmap \w :execute "Rg "."<C-r><C-w>"<cr>                     |
 "|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<cr>                            |
@@ -115,7 +115,7 @@ nmap gs  :Gstatus<CR>
 "|   \prr       | COC rename <cword> recursive  | nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>        |
 "|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                               |
 
-nnmap \\ :only<cr>
+nmap \\ :only<cr>
 nmap \cd :cd %:p:h<cr>:pwd<cr>
 nmap \w :execute "Rg "."<C-r><C-w>"<cr>
 nmap \d :CocList diagnostics<cr>
