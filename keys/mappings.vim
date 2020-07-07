@@ -86,60 +86,49 @@ inoremap <silent> <C-[>  <esc>
 "
 " }}}
 "
-" <leader> i.e. \ mappigs {{{
-"|    Key       | Description                   |                                                             |
-"|--------------|-------------------------------|-------------------------------------------------------------|
-"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<CR>:pwd<CR>                              |
-"|   \f         | Show current file in explorer | nmap \f  :NERDTreeFind<CR>                                  |
-"|   \n         | Toggle Nerd Tree              | nnnnoremap \n  :NERDTreeToggle<CR>                          |
-"|   \\         | Maximize this view            | nmap \\ :only<CR>                                           |
-"|   K          | Show documentation            | nmap <silent> K :call <SID>show_documentation()<CR>         |
-"|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<CR>                            |
-"|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                                |
-"|   \rr        | COC rename                    | nmap \rr coc#refresh()                                      |
-"|   \prr       | COC rename <cword>            | nmap <leader>prr :CocSearch <c-r>=expand("<cword>")<cr><cr> |
-"|   [g         | Goto next diagnostic          | nmap [g <Plug>(coc-diagnostic-prev)                         |
-"|   ]g         | Goto previous diagnostic      | nmap ]g <Plug>(coc-diagnostic-next)                         |
-"|   gn         | Coc next diagnostic error     | nmap gn <Plug>(coc-diagnostic-next-error)                         |
-"|   gp         | Coc previous diagnostic error | nmap gp <Plug>(coc-diagnostic-prew-error)                         |
-"|   gd         | Goto definition               | nmap gd <Plug>(coc-definition)                              |
-"|   gi         | Goto inplementation           | nmap gi <Plug>(coc-implementation)                          |
-"|   gr         | Goto reference                | nmap gr <Plug>(coc-references)                              |
-"|   gy         | Goto type definition          | nmap gy <Plug>(coc-type-definition)                         |
-"|   \rf        | COC refactor                  | nmap \rf <Plug>(coc-refactor)                               |
-"|   \cr        | Coc Rename                    | nmap \cr <Plug>(coc-rename)                                 |
-"|   \cf        | Coc fix current               | nmap \cf <Plug>(coc-fix-current)                            |
+"
 
-
-nmap \f  :NERDTreeFind<CR>
-nmap \n  :NERDTreeToggle<CR>
-nmap \\ :only<CR>
+" =======================  'g' Mappings        ============================== {{{
 nmap <silent> K :call <SID>show_documentation()<CR>
-nmap \d :CocList diagnostics<CR>
-imap <expr> \r coc#refresh()
-nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>prr :CocSearch <c-r>=expand("<cword>")<cr><cr>
-nmap [g <Plug>(coc-diagnostic-prev)
-nmap ]g <Plug>(coc-diagnostic-next-error)
-nmap gp <Plug>(coc-diagnostic-prev-error)
-nmap gn <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> dg <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gc <Plug>(coc-fix-current)
+nmap gs  :Gstatus<CR>
 
-nmap \rf <Plug>(coc-refactor)
-nmap gy <Plug>(coc-type-definition)
-nmap \cr <Plug>(coc-rename)
-nmap \cf <Plug>(coc-fix-current)
+" }}}
+
+" =======================  '\' Mappings        ============================== {{{
+"|    Key       | Description                   |                                                             |
+"|--------------|-------------------------------|-------------------------------------------------------------|
+"|   \\         | Maximize this view            | nnmap \\ :only<cr>                                          |
+"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<cr>:pwd<cr>                              |
+"|   \w         | Search <cword> recursive      | nmap \w :execute "Rg "."<C-r><C-w>"<cr>                     |
+"|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<cr>                            |
+"|   \rr        | COC rename                    | nmap \rr <Plug>(coc-rename)                                 |
+"|   \prr       | COC rename <cword> recursive  | nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>        |
+"|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                               |
+
+nnmap \\ :only<cr>
+nmap \cd :cd %:p:h<cr>:pwd<cr>
+nmap \w :execute "Rg "."<C-r><C-w>"<cr>
+nmap \d :CocList diagnostics<cr>
+nmap \rr <Plug>(coc-rename)
+nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>
+imap <expr> \r coc#refresh()
 
 "
 " }}}
 
 " ======================= Space ' ' Mappings ============================== {{{
-" |    Key       | Description                |                                                                  |
-" |--------------|----------------------------|------------------------------------------------------------------|
+" |    Key       | Description                |                                                              |
+" |--------------|----------------------------|--------------------------------------------------------------|
 " | <space> a    | Alternative/last File      | nmap <space>a  <c-^>                                         |
 " | <space> b    | Show buffers in fzf        | nmap <space>b  :Buffers<CR>                                  |
 " | <space> c    | Show git commits           | nmap <space>c  :GV<CR>                                       |
@@ -166,13 +155,11 @@ nmap <space>a  <c-^>
 nmap <space>b  :Buffers<CR>
 nmap <space>c  :GV<CR>
 nmap <space>d  :r! links -dump <space>
-nmap <space>r  :<C-u>Rg<CR>
-nmap <space>rw :execute "Rg "."<C-r><C-w>"<CR>
+
 nmap <space>gf :diffget //2<CR>
 nmap <space>gj :diffget //3<CR>
 nmap <space>h  :History<CR>
 nmap <space>l  :set list!<CR>
-nmap <space>s  :Gstatus<CR>
 nmap <silent>  <space>T :vertical botright Ttoggle<cr><C-w>l
 nmap <silent>  <space>t :botright Ttoggle<cr><C-w>j
 nmap <space>u  :UndotreeToggle<CR>
@@ -183,6 +170,7 @@ nmap <Space>vv :Vista focus<CR>
 nmap <space>w  :%s/\s\+$//e<CR>
 nmap <space>y  "+y
 nmap <space>Y  gg"+yG
+nmap <space>/ :Rg<space>
 " }}}
 "
 "
