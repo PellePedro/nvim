@@ -33,7 +33,7 @@ set signcolumn=yes                      " Always show the signcolumn, otherwise 
 set smartindent                         " Makes indenting smart
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set splitbelow                          " Horizontal splits will automatically be below
-set splitright                          " Vertical splits will automatically be to the right
+"set splitright                          " Vertical splits will automatically be to the right
 set undodir=~/.vim/undodir              " undo directory
 set undofile
 set t_Co=256                            " Support 256 colors

@@ -87,24 +87,28 @@ inoremap <silent> <C-[>  <esc>
 " }}}
 "
 " <leader> i.e. \ mappigs {{{
-"|    Key       | Description                   |                                                            |
-"|--------------|-------------------------------|------------------------------------------------------------|
-"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<CR>:pwd<CR>                             |
-"|   \f         | Show current file in explorer | nmap \f  :NERDTreeFind<CR>                                 |
-"|   \n         | Toggle Nerd Tree              | nnnnoremap \n  :NERDTreeToggle<CR>                         |
-"|   \\         | Maximize this view            | nmap \\ :only<CR>                                          |
-"|   K          | Show documentation            | nmap <silent> K :call <SID>show_documentation()<CR>        |
-"|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<CR>                           |
-"|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                               |
-"|   [g         | Goto next diagnostic          | nmap [g <Plug>(coc-diagnostic-prev)                        |
-"|   ]g         | Goto previous diagnostic      | nmap ]g <Plug>(coc-diagnostic-next)                        |
-"|   gd         | Goto definition               | nmap gd <Plug>(coc-definition)                             |
-"|   gi         | Goto inplementation           | nmap gi <Plug>(coc-implementation)                         |
-"|   gr         | Goto reference                | nmap gr <Plug>(coc-references)                             |
-"|   gy         | Goto type definition          | nmap gy <Plug>(coc-type-definition)                        |
-"|   \rf        | COC refactor                  | nmap \rf <Plug>(coc-refactor)                              |
-"|   \cr        | Coc Rename                    | nmap \cr <Plug>(coc-rename)                                |
-"|   \cf        | Coc fix current               | nmap \cf <Plug>(coc-fix-current)                           |
+"|    Key       | Description                   |                                                             |
+"|--------------|-------------------------------|-------------------------------------------------------------|
+"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<CR>:pwd<CR>                              |
+"|   \f         | Show current file in explorer | nmap \f  :NERDTreeFind<CR>                                  |
+"|   \n         | Toggle Nerd Tree              | nnnnoremap \n  :NERDTreeToggle<CR>                          |
+"|   \\         | Maximize this view            | nmap \\ :only<CR>                                           |
+"|   K          | Show documentation            | nmap <silent> K :call <SID>show_documentation()<CR>         |
+"|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<CR>                            |
+"|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                                |
+"|   \rr        | COC rename                    | nmap \rr coc#refresh()                                      |
+"|   \prr       | COC rename <cword>            | nmap <leader>prr :CocSearch <c-r>=expand("<cword>")<cr><cr> |
+"|   [g         | Goto next diagnostic          | nmap [g <Plug>(coc-diagnostic-prev)                         |
+"|   ]g         | Goto previous diagnostic      | nmap ]g <Plug>(coc-diagnostic-next)                         |
+"|   gn         | Coc next diagnostic error     | nmap gn <Plug>(coc-diagnostic-next-error)                         |
+"|   gp         | Coc previous diagnostic error | nmap gp <Plug>(coc-diagnostic-prew-error)                         |
+"|   gd         | Goto definition               | nmap gd <Plug>(coc-definition)                              |
+"|   gi         | Goto inplementation           | nmap gi <Plug>(coc-implementation)                          |
+"|   gr         | Goto reference                | nmap gr <Plug>(coc-references)                              |
+"|   gy         | Goto type definition          | nmap gy <Plug>(coc-type-definition)                         |
+"|   \rf        | COC refactor                  | nmap \rf <Plug>(coc-refactor)                               |
+"|   \cr        | Coc Rename                    | nmap \cr <Plug>(coc-rename)                                 |
+"|   \cf        | Coc fix current               | nmap \cf <Plug>(coc-fix-current)                            |
 
 
 nmap \f  :NERDTreeFind<CR>
@@ -113,8 +117,12 @@ nmap \\ :only<CR>
 nmap <silent> K :call <SID>show_documentation()<CR>
 nmap \d :CocList diagnostics<CR>
 imap <expr> \r coc#refresh()
-map [g <Plug>(coc-diagnostic-prev)
-map ]g <Plug>(coc-diagnostic-next)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>prr :CocSearch <c-r>=expand("<cword>")<cr><cr>
+nmap [g <Plug>(coc-diagnostic-prev)
+nmap ]g <Plug>(coc-diagnostic-next-error)
+nmap gp <Plug>(coc-diagnostic-prev-error)
+nmap gn <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> dg <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
