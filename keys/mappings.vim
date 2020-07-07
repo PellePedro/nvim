@@ -123,6 +123,10 @@ nmap \rr <Plug>(coc-rename)
 nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>
 imap <expr> \r coc#refresh()
 
+nmap \f  :Vista finder coc<CR>
+nmap \oq :Vista focus<CR>:close<CR>
+nmap \t  :Vista coc<CR>
+nmap \q  :Vista!<CR>
 "
 " }}}
 
@@ -163,10 +167,6 @@ nmap <space>l  :set list!<CR>
 nmap <silent>  <space>T :vertical botright Ttoggle<cr><C-w>l
 nmap <silent>  <space>t :botright Ttoggle<cr><C-w>j
 nmap <space>u  :UndotreeToggle<CR>
-nmap <Space>vf :Vista finder<CR>
-nmap <Space>vq :Vista focus<CR>:close<CR>
-nmap <Space>vs :Vista show<CR>
-nmap <Space>vv :Vista focus<CR>
 nmap <space>w  :%s/\s\+$//e<CR>
 nmap <space>y  "+y
 nmap <space>Y  gg"+yG
