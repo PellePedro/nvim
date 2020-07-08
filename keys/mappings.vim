@@ -90,6 +90,7 @@ inoremap <silent> <C-[>  <esc>
 
 " =======================  'g' Mappings        ============================== {{{
 nmap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> gd :call <SID>show_documentation()<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
 nmap <silent> gn <Plug>(coc-diagnostic-next)
@@ -100,7 +101,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gc <Plug>(coc-fix-current)
-nmap gs  :Gstatus<CR>
 
 " }}}
 
@@ -117,7 +117,7 @@ nmap gs  :Gstatus<CR>
 "|   \d         | Show LSP diagnistics          | nmap \d  :CocList diagnostics<cr>                          |
 "|   \f         | Show LSP outline in finder    | nmap \f :Vista finder coc<CR>                              |
 "|   \t         | Show LSP outline              | nmap \t :Vista coc<CR>                                     |
-"|   \q         | Close LSP outline             |                                                            |
+"|   \q         | Close LSP outline             | nmap \q  :Vista!<CR>
 
 nmap \\ :only<cr>
 nmap \cd :cd %:p:h<cr>:pwd<cr>
@@ -174,6 +174,7 @@ nmap <space>h  :History<CR>
 nmap <space>l  :set list!<CR>
 nmap <silent>  <space>T :vertical botright Ttoggle<cr><C-w>l
 nmap <silent>  <space>t :botright Ttoggle<cr><C-w>j
+nmap <space>s  :Gstatus<CR>
 nmap <space>u  :UndotreeToggle<CR>
 nmap <space>w  :%s/\s\+$//e<CR>
 nmap <space>y  "+y
