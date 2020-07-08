@@ -108,26 +108,34 @@ nmap gs  :Gstatus<CR>
 "|    Key       | Description                   |                                                             |
 "|--------------|-------------------------------|-------------------------------------------------------------|
 "|   \\         | Maximize this view            | nmap \\ :only<cr>                                          |
-"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<cr>:pwd<cr>                              |
-"|   \w         | Search <cword> recursive      | nmap \w :execute "Rg "."<C-r><C-w>"<cr>                     |
-"|   \d         | COC dignostic                 | nmap \d :CocList diagnostics<cr>                            |
-"|   \rr        | COC rename                    | nmap \rr <Plug>(coc-rename)                                 |
-"|   \prr       | COC rename <cword> recursive  | nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>        |
+"|   \cd        | cd to this file's directory   | nmap \cd :cd %:p:h<cr>:pwd<cr>                             |
+"|   \w         | Search <cword> recursive      | nmap \w :execute "Rg "."<C-r><C-w>"<cr>                    |
+"|   \d         | LSP dignostic                 | nmap \d :CocList diagnostics<cr>                           |
+"|   \br        | LSP rename                    | nmap \br <Plug>(coc-rename)                                |
+"|   \r         | LSP rename <cword> recursive  | nmap \r :CocSearch <c-r>=expand("<cword>")<cr><cr>         |
 "|   \r         | Refresh COC                   | imap <expr> \r coc#refresh()                               |
+"|   \d         | Show LSP diagnistics          | nmap \d  :CocList diagnostics<cr>                          |
+"|   \f         | Show LSP outline in finder    | nmap \f :Vista finder coc<CR>                              |
+"|   \t         | Show LSP outline              | nmap \t :Vista coc<CR>                                     |
+"|   \q         | Close LSP outline             |                                                            |
 
 nmap \\ :only<cr>
 nmap \cd :cd %:p:h<cr>:pwd<cr>
 nmap \w :execute "Rg "."<C-r><C-w>"<cr>
-nmap \d :CocList diagnostics<cr>
-nmap \rr <Plug>(coc-rename)
-nmap \prr :CocSearch <c-r>=expand("<cword>")<cr><cr>
-imap <expr> \r coc#refresh()
 
-nmap \f  :Vista finder coc<CR>
-nmap \oq :Vista focus<CR>:close<CR>
-nmap \t  :Vista coc<CR>
-nmap \q  :Vista!<CR>
-"
+augroup lsp
+  au!
+  au FileType go,rst,sh,java nmap \d  :CocList diagnostics<cr>
+  au FileType go,rst,sh,java nmap \br <Plug>(coc-rename)
+  au FileType go,rst,sh,java nmap \r  :CocSearch <c-r>=expand("<cword>")<cr><cr>
+  au FileType go,rst,sh,java imap <expr> \r  coc#refresh()
+  au FileType go,rst,sh,java nmap \d  :CocList diagnostics<cr>
+  au FileType go,rst,sh,java nmap \f  :Vista finder coc<CR>
+  au FileType go,rst,sh,java nmap \t  :Vista coc<CR>
+  au FileType go,rst,sh,java nmap \q  :Vista!<CR>
+augroup END
+
+
 " }}}
 
 " ======================= Space ' ' Mappings ============================== {{{
