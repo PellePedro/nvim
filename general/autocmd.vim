@@ -12,14 +12,12 @@ au Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 au FileType go,rst setlocal foldmethod=indent
 au FileType go,rst setlocal foldlevel=1
 au FileType go setlocal nolist
+"au! TextChanged,TextChangedI *.go,*.rst,*.sh,*.java <buffer> silent write
 
 " rst
 au BufNewFile,BufRead *.rst set textwidth=75
 au BufNewFile,BufRead *.rst syntax spell toplevel
 au BufNewFile,BufRead *.rst setlocal spell
-
-" Auto save whenever text is changed
-autocmd TextChanged,TextChangedI <buffer> silent write
 
 "" Remove trailing whitespaces
 func! DeleteTrailingWS()

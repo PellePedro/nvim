@@ -4,7 +4,7 @@
 "set updatetime=300                      " Faster completion
 set autoindent                          " Good auto indent
 set background=dark                     " tell vim what the background color looks like
-set clipboard=unnamedplus               " Copy paste between vim and everything else
+"set clipboard=unnamedplus               " Copy paste between vim and everything else
 set cmdheight=2
 set colorcolumn=100
 set conceallevel=0                      " So that I can see `` in markdown files
