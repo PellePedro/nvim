@@ -179,9 +179,10 @@ nmap <space>u  :UndotreeToggle<CR>
 nmap <space>w  :%s/\s\+$//e<CR>
 nmap <space>y  "+y
 nmap <space>Y  gg"+yG
+noremap p ""p
 nmap <space>/ :Rg<space>
 " }}}
-"
+
 "
 "
 " zoom a vim pane, <C-w> = to re-balance
