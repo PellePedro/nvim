@@ -3,7 +3,7 @@
 " FZF {{{
 "
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-nnoremap <silent> <C-P> :GFiles<cr>
+nnoremap <silent> <C-P> :Files<cr>
 
 let g:fzf_files_options =
       \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'

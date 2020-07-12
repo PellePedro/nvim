@@ -28,6 +28,11 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ctrlpvim/ctrlp.vim'
 
+" java
+Plug 'tpope/vim-classpath'
+Plug 'uiiaoo/java-syntax.vim'
+Plug 'puremourning/vimspector'
+"
 "Rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'

@@ -73,15 +73,15 @@ vmap \h :s/\d\+/\=printf("0x%04x", submatch(0))<CR>
 " ======================= Control '^' Mappings ============================== {{{
 
 noremap  <silent> <C-s>  :update<CR>
-vnoremap <silent> <C-s>  <C-C>:update<CR>
-inoremap <silent> <C-s>  <C-O>:update<CR>
+vnoremap <silent> <C-s>  <C-C>:update<CR><ESC>
+inoremap <silent> <C-s>  <C-O>:update<CR><ESC>
 
 " Map ctrl-q to save the buffer  and quit
 noremap  <silent> <C-q>  :update<CR>:q<CR>
 vnoremap <silent> <C-q>  <C-C>:update<CR>:q<CR>
 inoremap <silent> <C-q>  <ESC>
 
-inoremap <silent> <C-[>  <esc>
+inoremap <silent> <C-[>  <ESC>
 "
 "
 " }}}

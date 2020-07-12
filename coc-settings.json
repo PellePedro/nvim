@@ -70,4 +70,8 @@
   "diagnostic.infoSign": "•",
   "diagnostic.hintSign": "λ",
   "codeLens.enable": true,
+  "java.codeGeneration.generateComments": true,
+  "java.codeGeneration.toString.codeStyle": "STRING_BUILDER_CHAINED",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.saveActions.organizeImports": true
 }
