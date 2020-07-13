@@ -38,6 +38,8 @@ function! s:install_coc_extensions()
   CocInstall coc-sh
   CocInstall coc-snippets
   CocInstall coc-yaml
+  CocInstall coc-java
+  CocInstall coc-java-debug
 endfunc
 
 command! InstallCoc :call s:install_coc_extensions()
