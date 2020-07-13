@@ -50,9 +50,6 @@ tnoremap <c-j> <C-\><C-n><C-w>j
 tnoremap <c-k> <C-\><C-n><C-w>k
 tnoremap <c-l> <C-\><C-n><C-w>l
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
 "
 noremap ]t :tabnext<CR>
 noremap ]T :tablast<CR>
@@ -89,18 +86,18 @@ inoremap <silent> <C-[>  <ESC>
 "
 
 " =======================  'g' Mappings        ============================== {{{
-nmap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> gd :call <SID>show_documentation()<CR>
+" Use K to show documentation in preview window
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
+nmap <silent> dg <Plug>(coc-definition)
+nmap <silent> gc <Plug>(coc-fix-current)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gh :call <SID>show_documentation()<CR>
+nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev-error)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> dg <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gc <Plug>(coc-fix-current)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 " }}}
 
@@ -129,7 +126,6 @@ augroup lsp
   au FileType go,rst,sh,java nmap \br <Plug>(coc-rename)
   au FileType go,rst,sh,java nmap \r  :CocSearch <c-r>=expand("<cword>")<cr><cr>
   au FileType go,rst,sh,java imap <expr> \r  coc#refresh()
-  au FileType go,rst,sh,java nmap \d  :CocList diagnostics<cr>
   au FileType go,rst,sh,java nmap \f  :Vista finder coc<CR>
   au FileType go,rst,sh,java nmap \t  :Vista coc<CR>
   au FileType go,rst,sh,java nmap \q  :Vista!<CR>
