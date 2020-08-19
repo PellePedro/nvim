@@ -30,16 +30,17 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 function! s:install_coc_extensions()
   CocInstall coc-diagnostic
-  CocInstall coc-rls
   CocInstall coc-go
+  CocInstall coc-java
+  CocInstall coc-java-debug
   CocInstall coc-json
+  CocInstall coc-highlight
   CocInstall coc-pairs
   CocInstall coc-python
+  CocInstall coc-rls
   CocInstall coc-sh
   CocInstall coc-snippets
   CocInstall coc-yaml
-  CocInstall coc-java
-  CocInstall coc-java-debug
 endfunc
 
 command! InstallCoc :call s:install_coc_extensions()
