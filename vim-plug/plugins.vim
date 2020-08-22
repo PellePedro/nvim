@@ -14,7 +14,7 @@ Plug 'jiangmiao/auto-pairs'
 " Theme ==================================
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sainnhe/gruvbox-material'
+Plug 'gruvbox-community/gruvbox'
 " Atom One Dark theme.
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -26,7 +26,6 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'zivyangll/git-blame.vim'
 Plug 'mhinz/vim-signify'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " java
 Plug 'tpope/vim-classpath'
@@ -62,8 +61,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-dirvish'
+"
+Plug 'junegunn/fzf', { 'do': { -> fxf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'stsewd/fzf-checkout.vim'
+"
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'

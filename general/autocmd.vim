@@ -1,3 +1,6 @@
+" Autosave
+autocmd TextChanged,TextChangedI <buffer> silent write
+
 " Indentation
 au BufNewFile,BufRead *.go  setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
 au BufNewFile,BufRead *.sh  setlocal   et ts=4 sw=4 sts=4

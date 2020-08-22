@@ -25,5 +25,6 @@ source $HOME/.config/nvim/plug-config/sneak.vim
 
 source $HOME/.config/nvim/plug-config/vista.vim
 
-:call SwitchColorScheme('gruvbox')
-set termguicolors
+call SwitchColorScheme('gruvbox')
+"colorscheme gruvbox
+"set background=dark

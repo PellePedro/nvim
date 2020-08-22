@@ -89,8 +89,9 @@ inoremap <silent> <C-[>  <ESC>
 " Use K to show documentation in preview window
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
-nmap <silent> dg <Plug>(coc-definition)
-nmap <silent> gc <Plug>(coc-fix-current)
+nmap <silent> ]c  <Plug>(coc-fix-current)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gc :GCheckout<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gh :call <SID>show_documentation()<CR>
 nmap <silent> gi <Plug>(coc-implementation)
