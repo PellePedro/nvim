@@ -62,11 +62,11 @@ Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-dirvish'
 "
-Plug 'junegunn/fzf', { 'do': { -> fxf#install() } }
+"Plug 'junegunn/fzf', { 'do': { -> fxf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 "
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
