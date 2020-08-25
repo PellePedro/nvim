@@ -17,7 +17,7 @@ function! SendViaOSC52(str)
   " specially.
   if !empty($TMUX)
     let osc52 = s:get_OSC52_tmux(a:str)
-  elseif match($TERM, 'screen') > -1
+  elseif match($MUX, 'SCREEN') > -1
     let osc52 = s:get_OSC52_DCS(a:str)
   else
     let osc52 = s:get_OSC52(a:str)
