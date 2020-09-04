@@ -102,7 +102,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 
 " }}}
 
-" =======================  '\' Mappings        ============================== {{{
+" =======================  '\' Mappings        ============================== {{{{{{
 "|    Key       | Description                   |                                                             |
 "|--------------|-------------------------------|-------------------------------------------------------------|
 "|   \\         | Maximize this view            | nmap \\ :only<cr>                                          |
@@ -120,6 +120,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap \\ :only<cr>
 nmap \cd :cd %:p:h<cr>:pwd<cr>
 nmap \w :execute "Rg "."<C-r><C-w>"<cr>
+" Count number of matches of word under cursor
+nmap \n *<C-O>:%s///gn<CR>``
+
 
 augroup lsp
   au!
@@ -133,7 +136,7 @@ augroup lsp
 augroup END
 
 
-" }}}
+" }}}}}}
 
 " ======================= Space ' ' Mappings ============================== {{{
 " |    Key       | Description                |                                                              |
