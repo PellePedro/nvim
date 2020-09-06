@@ -27,6 +27,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'zivyangll/git-blame.vim'
 Plug 'mhinz/vim-signify'
 
+" Test
+Plug 'vim-test/vim-test'
+
 " java
 Plug 'tpope/vim-classpath'
 Plug 'uiiaoo/java-syntax.vim'
