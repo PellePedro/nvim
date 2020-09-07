@@ -8,6 +8,9 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 vnoremap <silent> jj <ESC>
 inoremap <silent> jj <ESC>
 
+" stay on current word
+nnoremap * *``
+
 nnoremap j gj
 nnoremap k gk
 nnoremap $ g$
