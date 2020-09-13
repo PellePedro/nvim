@@ -31,8 +31,9 @@ git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
 |  [ + g   | LSP disgnostic prev           |
 |  ] + g   | LSP diagnostic next error     |
 |  ] + c   | LSP fox current error         |
+|  g + b   | git checkout/track branch     |
 |  g + d   | LSP show diagnostics          |
-|  g + c   | git checkout/track branch     |
+|  g + c   | git show commits              |
 |  g + d   | Goto definition               |
 |  g + f   | Goto file                     |
 |  g + h   | Show documentation            |
@@ -40,6 +41,7 @@ git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
 |  g + n   | Show diagnostics next         |
 |  g + p   | Show diagnostic prev error    |
 |  g + r   | LSP show reference            |
+|  g + s   | git status                    |
 |  g + y   | Goto type                     |
 ```
 
@@ -48,12 +50,11 @@ git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
 ```
 | key      | Mapping                          |
 |----------|----------------------------------|
-| <sp> + a | Toggle last file                 |
-| <sp> + b | Show Buffers                     |
-| <sp> + d | Fetch data by http               |
-| <sp> + l | Toggle none printable characters |
-| <sp> + s | git status                       |
-| <sp> + u | Show undotree                    |
-| <sp> + w | Trim trailing whitespace         |
-| <sp> + / | Search with Rg                   |
+| <sp>a    | Toggle last file                 |
+| <sp>b    | Show Buffers                     |
+| <sp>d    | Fetch data by http               |
+| <sp>l    | Toggle none printable characters |
+| <sp>u    | Show undotree                    |
+| <sp>w    | Trim trailing whitespace         |
+| <sp>/    | Search with Rg                   |
 ```

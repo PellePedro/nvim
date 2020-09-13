@@ -8,6 +8,7 @@ au BufNewFile,BufRead *.go  setlocal noexpandtab shiftwidth=4 tabstop=4 softtabs
 au BufNewFile,BufRead *.sh  setlocal   et ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md  setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.py  setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.vim setlocal   et sw=2 ts=2
 au BufNewFile,BufRead *.rst setlocal      sw-4 ts=4 sts=4
 au FileType json            setlocal   et sw=2 ts=2

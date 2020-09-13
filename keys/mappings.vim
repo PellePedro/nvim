@@ -92,15 +92,17 @@ inoremap <silent> <C-[>  <ESC>
 " Use K to show documentation in preview window
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
-nmap <silent> ]c  <Plug>(coc-fix-current)
+nmap <silent> ]c <Plug>(coc-fix-current)
+nmap <silent> gb :GBranches<CR>
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gc :GCheckout<CR>
+nmap <silent> gc :GV<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gh :call <SID>show_documentation()<CR>
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> gr <Plug>(coc-references)
+nmap gs :Gstatus<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 
 " }}}}}}
@@ -132,7 +134,6 @@ augroup END
 
 nmap <space>a  <c-^>
 nmap <space>b  :Buffers<CR>
-nmap <space>c  :GV<CR>
 nmap <space>d  :r! links -dump <space>
 
 nmap <space>gf :diffget //2<CR>
