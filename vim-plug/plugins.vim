@@ -50,12 +50,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
-
-Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
 
+" Extentions to built-in LSP, for example, providing type inlay hints
+Plug 'tjdevries/lsp_extensions.nvim'
 
 " syntax
 "Plug 'nvim-treesitter/nvim-treesitter'
@@ -111,6 +109,11 @@ call plug#end()
 "}}}
 "
 "
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \|   PlugInstall --sync | q
+      \| endif
 "
 let g:better_whitespace_enabled=1
 "let g:strip_whitespace_on_save=1

@@ -5,11 +5,6 @@
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
 
-" Automatically install missing plugins on startup
-autocmd VimEnter *
-      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \|   PlugInstall --sync | q
-      \| endif
 
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim

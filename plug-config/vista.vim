@@ -12,7 +12,7 @@ let g:vista_default_executive='nvim_lsp'
 let g:vista_log_file = stdpath('cache').'/vista.log'
 
 let g:vista_executive_for = {
-    \ 'go': 'vim_lsp',
+    \ 'go': 'nvim_lsp',
     \ 'markdown': 'toc',
     \ }
 let g:vista_highlight_whole_line=1
