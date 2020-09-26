@@ -4,6 +4,13 @@
 " _/ // / / / / /__| |/ / / / / / / /
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \|   PlugInstall --sync | q
+      \| endif
+
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
@@ -12,7 +19,6 @@ source $HOME/.config/nvim/general/autocmd.vim
 source $HOME/.config/nvim/themes/colorscheme.vim
 source $HOME/.config/nvim/plug-config/dirvish.vim
 source $HOME/.config/nvim/plug-config/signify.vim
-source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/fugitive.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/go.vim
@@ -20,11 +26,10 @@ source $HOME/.config/nvim/plug-config/rust.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/sneak.vim
 source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/vista.vim
 "source $HOME/.config/nvim/plug-config/start-screen.vim
 "source $HOME/.config/nvim/plug-config/vim-router.vim
 
-source $HOME/.config/nvim/plug-config/vista.vim
+call SwitchColorScheme('gruvbuddy')
 
-call SwitchColorScheme('gruvbox')
-"colorscheme gruvbox
-"set background=dark

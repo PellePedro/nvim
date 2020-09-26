@@ -18,7 +18,8 @@ Plug 'gruvbox-community/gruvbox'
 " Atom One Dark theme.
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
-
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'tjdevries/gruvbuddy.nvim'
 
 "Git
 Plug 'sheerun/vim-polyglot'
@@ -41,7 +42,25 @@ Plug 'racer-rust/vim-racer'
 
 " Go
 Plug 'fatih/vim-go'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'tjdevries/nlua.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+
+
+" syntax
+"Plug 'nvim-treesitter/nvim-treesitter'
+
+
 
 " Python
 Plug 'davidhalter/jedi-vim', {'for': ['python']}

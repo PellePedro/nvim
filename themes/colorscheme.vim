@@ -9,6 +9,15 @@ endfunction
 
 function! ColorScheme()
 
+  if g:VIM_COLOR_SCHEME ==# 'gruvbuddy'
+    set background=dark
+    lua require('colorbuddy').colorscheme('gruvbuddy')
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_nr_show = 1
+    let g:airline_theme='deus'
+  endif
+
   if g:VIM_COLOR_SCHEME ==# 'nord'
     set background=dark
     let g:nord_underline = 1
@@ -33,6 +42,15 @@ function! ColorScheme()
     "let g:lightline.colorscheme = 'gruvbox_material'
   endif
 endfunction
+
+
+
+
+
+"if exists('+termguicolors')
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"endif
 
 " The Defaults
 

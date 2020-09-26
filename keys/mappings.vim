@@ -90,20 +90,11 @@ inoremap <silent> <C-[>  <ESC>
 
 " =======================  'g' Mappings        ============================== {{{{{{
 " Use K to show documentation in preview window
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
-nmap <silent> ]c <Plug>(coc-fix-current)
 nmap <silent> gb :GBranches<CR>
-nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gc :GV<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gh :call <SID>show_documentation()<CR>
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gn <Plug>(coc-diagnostic-next)
-nmap <silent> gp <Plug>(coc-diagnostic-prev-error)
-nmap <silent> gr <Plug>(coc-references)
-nmap gs :Gstatus<CR>
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gs :Gstatus<CR>
+
+
 
 " }}}}}}
 
@@ -114,18 +105,6 @@ nmap \cd :cd %:p:h<cr>:pwd<cr>
 nmap \w :execute "Rg "."<C-r><C-w>"<cr>
 " Count number of matches of word under cursor
 nmap \n *<C-O>:%s///gn<CR>``
-
-
-augroup lsp
-  au!
-  au FileType go,rst,sh,java nmap \d  :CocList diagnostics<cr>
-  au FileType go,rst,sh,java nmap \br <Plug>(coc-rename)
-  au FileType go,rst,sh,java nmap \r  :CocSearch <c-r>=expand("<cword>")<cr><cr>
-  au FileType go,rst,sh,java imap <expr> \r  coc#refresh()
-  au FileType go,rst,sh,java nmap \f  :Vista finder coc<CR>
-  au FileType go,rst,sh,java nmap \t  :Vista coc<CR>
-  au FileType go,rst,sh,java nmap \q  :Vista!<CR>
-augroup END
 
 
 " }}}}}}
