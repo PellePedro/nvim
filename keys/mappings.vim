@@ -22,14 +22,6 @@ noremap <C-u> <C-u>zz
 noremap <C-f> <C-f>zz
 noremap <C-b> <C-b>zz
 
-" Move Visual Selected Lines up and down
-nnoremap <A-j> :m .+1<R>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
 nnoremap <CR> :nohl<CR>
 
 " prevent entering ex mode accidentally
@@ -53,14 +45,17 @@ tnoremap <c-j> <C-\><C-n><C-w>j
 tnoremap <c-k> <C-\><C-n><C-w>k
 tnoremap <c-l> <C-\><C-n><C-w>l
 
-"
-noremap ]t :tabnext<CR>
-noremap ]T :tablast<CR>
-noremap [t :tabprev<CR>
-noremap [T :tabfirst<CR>
-noremap tq :tabclose<CR>
 
-" Toggle vertical/horizontal spli
+" ===
+" === Tab management
+" ===
+" Create a new tab, next, previous, close
+noremap tu :tabe<CR>
+noremap tn :tabn<CR>
+noremap tp :tabp<CR>
+noremap tq :tabc<CR>
+
+" Toggle vertical/horizontal split
 "set splitbelow
 "set splitright
 "noremap <leader>th <C-w>K
@@ -93,9 +88,6 @@ inoremap <silent> <C-[>  <ESC>
 nmap <silent> gb :GBranches<CR>
 nmap <silent> gc :GV<CR>
 nmap <silent> gs :Gstatus<CR>
-
-
-
 " }}}}}}
 
 " =======================  '\' Mappings        ============================== {{{{{{
@@ -142,3 +134,6 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " zoom a vim pane, <C-w> = to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
+
+" Open up lazygit
+noremap \g :tabe<CR>:-tabmove<CR>:term lazygit<CR>
