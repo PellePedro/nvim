@@ -42,7 +42,8 @@ Plug 'racer-rust/vim-racer'
 
 " Go
 Plug 'fatih/vim-go'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
@@ -54,10 +55,6 @@ Plug 'nvim-lua/lsp-status.nvim'
 
 " Extentions to built-in LSP, for example, providing type inlay hints
 Plug 'tjdevries/lsp_extensions.nvim'
-
-" syntax
-"Plug 'nvim-treesitter/nvim-treesitter'
-
 
 
 " Python
@@ -96,7 +93,6 @@ Plug 'airblade/vim-rooter'
 Plug 'stefandtw/quickfix-reflector.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
-
 
 Plug 'vifm/vifm.vim'
 " Copying
