@@ -3,6 +3,9 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing extra messages when using completion
 set shortmess+=
 
+
+
+
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap K :lua vim.lsp.buf.signature_help()<CR>
@@ -22,6 +25,26 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " https://github.com/neovim/nvim-lspconfig#rust_analyzer
 lua <<EOF
 
+local vim = vim
+
+vim.cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
+vim.cmd [[autocmd BufEnter * lua require'diagnostic'.on_attach()]]
+
+-- icons
+local w_sign = ""
+local e_sign = ""
+local h_sign = "ﯦ"
+
+-- hilight
+vim.fn.sign_define("LspDiagnosticsErrorSign", {text = e_sign, texthl = "LspDiagnosticsError"})
+vim.fn.sign_define("LspDiagnosticsWarningSign", {text = w_sign, texthl = "LspDiagnosticsWarning"})
+vim.fn.sign_define("LspDiagnosticsHintSign", {text = h_sign, texthl = "LspDiagnosticsHint"})
+
+-- dignostic
+vim.api.nvim_set_var("diagnostic_enable_virtual_text", 1)
+vim.api.nvim_set_var("diagnostic_virtual_text_prefix", "")
+
+
 -- nvim_lsp object
 local nvim_lsp = require'nvim_lsp'
 
@@ -33,8 +56,9 @@ local on_attach = function(client)
 end
 
 -- Enable rust_analyzer
-nvim_lsp.gopls.setup({ on_attach=on_attach })
-nvim_lsp.pyls.setup({ on_attach=on_attach })
+-- nvim_lsp.gopls.setup({ on_attach=on_attach })
+nvim_lsp.gopls.setup{}
+nvim_lsp.pyls_ms.setup{}
 
 EOF
 
