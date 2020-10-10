@@ -20,6 +20,4 @@ let g:vista_highlight_whole_line=1
 augroup lsp
   au!
   au FileType go,rst,sh,java nmap \f  :Vista finder nvim_lsp<CR>
-  au FileType go,rst,sh,java nmap \t  :Vista nvim_lsp<CR>
-  au FileType go,rst,sh,java nmap \q  :Vista!<CR>
 augroup END
