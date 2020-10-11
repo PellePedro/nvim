@@ -78,8 +78,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-dirvish'
-"
-"Plug 'junegunn/fzf', { 'do': { -> fxf#install() } }
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'junegunn/fzf', { 'do': { -> fxf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 "
