@@ -19,8 +19,8 @@ let g:lua_tree_bindings = {
       \}
 let g:lua_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
     \}
 
 nnoremap <silent><c-n> :LuaTreeToggle<CR>

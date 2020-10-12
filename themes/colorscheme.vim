@@ -25,7 +25,8 @@ function! ColorScheme()
     let g:nord_italic = 1
     let g:nord_cursor_line_number_background = 1
     silent! colorscheme nord
-    let g:airline_theme='nord'
+    "let g:airline_theme='nord'
+    let g:airline_theme='deus'
     "let g:lightline = {}
     "let g:lightline.colorscheme = 'nord'
   endif
@@ -43,6 +44,7 @@ function! ColorScheme()
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline_theme='deus'
+    hi LuaTreeFolderName guifg=#cbe3e7  gui=bold
 
     "let g:lightline = {}
     "let g:lightline.colorscheme = 'gruvbox_material'
