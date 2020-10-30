@@ -8,7 +8,6 @@ let g:vista#renderer#icons = {
 
 let g:vista_echo_cursor_strategy='both'
 let g:vista_close_on_jump=0
-let g:vista_default_executive='nvim_lsp'
 let g:vista_log_file = stdpath('cache').'/vista.log'
 
 let g:vista_executive_for = {
