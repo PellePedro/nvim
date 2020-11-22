@@ -26,8 +26,10 @@ source $HOME/.config/nvim/plug-config/nvim-tree.vim
 "source $HOME/.config/nvim/plug-config/vim-router.vim
 
 call SwitchColorScheme('gruvbox')
-source $HOME/.config/nvim/plug-config/lsp.vim
+
+"source $HOME/.config/nvim/plug-config/lsp.vim
 
 lua <<EOF
 require'nvim-web-devicons'.setup()
 EOF
+

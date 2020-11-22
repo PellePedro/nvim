@@ -22,6 +22,7 @@ noremap <C-u> <C-u>zz
 noremap <C-f> <C-f>zz
 noremap <C-b> <C-b>zz
 
+noremap zz zzzr
 nnoremap <CR> :nohl<CR>
 
 " prevent entering ex mode accidentally

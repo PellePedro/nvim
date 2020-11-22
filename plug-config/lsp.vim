@@ -55,8 +55,8 @@ if ok then
   vim.lsp.callbacks["workspace/symbol"] = lsputil.workspace_handler
 end
 
--- nvim_lsp object
-local nvim_lsp = require'nvim_lsp'
+-- lspconfig object
+local lspconfig = require'lspconfig'
 
 -- function to attach completion and diagnostics
 -- when setting up lsp
@@ -66,181 +66,11 @@ local on_attach = function(client)
 end
 
 -- Enable rust_analyzer
--- nvim_lsp.gopls.setup({ on_attach=on_attach })
-nvim_lsp.gopls.setup{}
-nvim_lsp.pyls_ms.setup{}
-nvim_lsp.jdtls.setup{}
-nvim_lsp.bashls.setup{}
-
-
-
-nvim_lsp.rust_analyzer.setup {
-    settings = {
-      ["rust-analyzer"] = {
-        checkOnSave = {
-          command = "clippy"
-        }
-      },
-      capabilities = {
-        offsetEncoding = {"utf-8", "utf-16"},
-        textDocument = {
-          codeAction = {
-            codeActionLiteralSupport = {
-              codeActionKind = {
-                valueSet = {}
-              }
-            },
-            dynamicRegistration = false
-          },
-          completion = {
-            completionItem = {
-              commitCharactersSupport = false,
-              deprecatedSupport = false,
-              documentationFormat = {"markdown", "plaintext"},
-              preselectSupport = false,
-              snippetSupport = false
-            },
-            completionItemKind = {
-              valueSet = {
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25
-              }
-            },
-            contextSupport = false,
-            dynamicRegistration = false
-          },
-          declaration = {
-            linkSupport = true
-          },
-          definition = {
-            linkSupport = true
-          },
-          documentHighlight = {
-            dynamicRegistration = false
-          },
-          documentSymbol = {
-            dynamicRegistration = false,
-            hierarchicalDocumentSymbolSupport = true,
-            symbolKind = {
-              valueSet = {
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26
-              }
-            }
-          },
-          hover = {
-            contentFormat = {"markdown", "plaintext"},
-            dynamicRegistration = false
-          },
-          implementation = {
-            linkSupport = true
-          },
-          references = {
-            dynamicRegistration = false
-          },
-          signatureHelp = {
-            dynamicRegistration = false,
-            signatureInformation = {
-              documentationFormat = {"markdown", "plaintext"}
-            }
-          },
-          synchronization = {
-            didSave = true,
-            dynamicRegistration = false,
-            willSave = false,
-            willSaveWaitUntil = false
-          },
-          typeDefinition = {
-            linkSupport = true
-          }
-        },
-        workspace = {
-          applyEdit = true,
-          symbol = {
-            dynamicRegistration = false,
-            hierarchicalWorkspaceSymbolSupport = true,
-            symbolKind = {
-              valueSet = {
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+lspconfig.gopls.setup({ on_attach=on_attach })
+lspconfig.pyls_ms.setup{}
+lspconfig.jdtls.setup{}
+lspconfig.bashls.setup{}
+lspconfig.rust_analyzer.setup{}
 EOF
 
 
@@ -275,12 +105,14 @@ set signcolumn=yes
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
 " Show diagnostic popup on cursor hover
-autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+autocmd CursorHold *.go,*.rst lua vim.lsp.util.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
 nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
 
 " Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.go,*.rst,*.java
-\ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.go,*.rs,*.java lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
+
+
+

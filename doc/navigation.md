@@ -17,13 +17,6 @@ Shortcuts
 <ctl+p>
 ```
 
-## Open File (FZF)
-```
-Shortcuts
-=========
-<ctl+p>
-```
-
 ## Show Commits
 ```
 Shortcuts
