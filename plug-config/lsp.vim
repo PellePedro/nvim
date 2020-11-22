@@ -56,7 +56,7 @@ if ok then
 end
 
 -- lspconfig object
-local lspconfig = require'lspconfig'
+local lspconfig = require'nvim_lsp'
 
 -- function to attach completion and diagnostics
 -- when setting up lsp
@@ -110,9 +110,6 @@ autocmd CursorHold *.go,*.rst lua vim.lsp.util.show_line_diagnostics()
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
 nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
-
-" Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.go,*.rs,*.java lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
 
 
 
