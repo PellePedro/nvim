@@ -71,10 +71,20 @@ if executable('gopls') then
   nvim_lsp.gopls.setup  { on_attach = lsp_on_attach }
 end
 
+if executable('java') then
+  nvim_lsp.jdtls.setup  { on_attach = lsp_on_attach }
+end
+
+nvim_lsp.rust_analyzer.setup { on_attach = lsp_on_attach }
+nvim_lsp.bashls.setup { on_attach = lsp_on_attach }
+nvim_lsp.pyls_ms.setup  { on_attach = lsp_on_attach }
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
-    virtual_text = true,
+    virtual_text = {
+      prefix = '',
+    },
     signs = true,
     update_in_insert = true,
   }
