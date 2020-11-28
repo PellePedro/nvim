@@ -3,113 +3,93 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing extra messages when using completion
 set shortmess+=
 
-
-nnoremap gd :lua vim.lsp.buf.definition()<CR>
-nnoremap gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap K :lua vim.lsp.buf.signature_help()<CR>
-nnoremap gr :lua vim.lsp.buf.references()<CR>
-nnoremap \r :lua vim.lsp.buf.rename()<CR>
-nnoremap K :lua vim.lsp.buf.hover()<CR>
-nnoremap \a :lua vim.lsp.buf.code_action()<CR>
-nnoremap gR :lua require('telescope.builtin').lsp_references({})<CR>
-nnoremap \p :lua require('telescope.builtin').git_files()<CR>
-"nnoremap \pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-
 inoremap <C-c> <esc>
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-" Configure lsp
-" https://github.com/neovim/nvim-lspconfig#rust_analyzer
+" ========= NVIM-LSP ================
+" https://neovim.io/doc/user/lsp.html
+
+command! -bar -nargs=0 RestartLSP :lua vim.lsp.stop_client(vim.lsp.get_active_clients()); vim.cmd("edit")
+
 lua <<EOF
+-- https://github.com/lewis6991/dotfiles/blob/master/nvim/lua/lsp.lua
 
-local vim = vim
+local nvim_lsp   = require 'lspconfig'
+local completion = require 'completion'
+local configs    = require 'lspconfig/configs'
 
-vim.cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
-vim.cmd [[autocmd BufEnter * lua require'diagnostic'.on_attach()]]
+vim.lsp.set_log_level(0)
 
--- icons
-local w_sign = ""
-local e_sign = ""
-local h_sign = "ﯦ"
+-- Empty diagnostic handler.
+local none_diagnostic_handler = function() end
 
--- hilight
-vim.fn.sign_define("LspDiagnosticsErrorSign", {text = e_sign, texthl = "LspDiagnosticsError"})
-vim.fn.sign_define("LspDiagnosticsWarningSign", {text = w_sign, texthl = "LspDiagnosticsWarning"})
-vim.fn.sign_define("LspDiagnosticsHintSign", {text = h_sign, texthl = "LspDiagnosticsHint"})
+-- Diagnostics symbols for display in the sign column.
+vim.api.nvim_command('sign define LspDiagnosticsSignError text=')
+vim.api.nvim_command('sign define LspDiagnosticsSignWarning text=')
+vim.api.nvim_command('sign define LspDiagnosticsSignInformation text=✦')
+vim.api.nvim_command('sign define LspDiagnosticsSignHint text=')
 
--- dignostic
-vim.api.nvim_set_var("diagnostic_enable_virtual_text", 1)
-vim.api.nvim_set_var("diagnostic_virtual_text_prefix", "")
+-- Options for completion-nvim plugin.
+vim.g.completion_enable_auto_hover      = 0
+vim.g.completion_enable_auto_paren      = 0
+vim.g.completion_enable_auto_signature  = 0
+vim.g.completion_matching_strategy_list = {'exact'}
+vim.g.completion_menu_length            = 0
+vim.g.completion_sorting                = 'alphabet'
+vim.g.completion_timer_cycle            = 200
+vim.g.completion_trigger_keyword_length = 3
 
+-- On attach function.
+local lsp_on_attach = function(client)
+  completion.on_attach(client)
+
+  -- Mappings/
+  local opts = {noremap = true, silent = true}
+  vim.fn.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', '\r','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+
+  -- Enable LSP omnifunc.
+  vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
+  -- Indicate that LSP is ready.
+  print('Language server is ready')
+end
+
+local executable = function(x)
+  return vim.fn.executable(x) ~= 0
+end
+
+if executable('gopls') then
+  nvim_lsp.gopls.setup  { on_attach = lsp_on_attach }
+end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+  }
+)
 
 local ok, lsputil = pcall(require, "lsputil.codeAction")
 if ok then
-  vim.lsp.callbacks["textDocument/codeAction"] = lsputil.code_action_handler
-  --vim.lsp.callbacks["textDocument/references"] = lsputil.references_handler
-  --vim.lsp.callbacks["textDocument/definition"] = lsputil.definition_handler
-  --vim.lsp.callbacks["textDocument/declaration"] = lsputil.declaration_handler
-  --vim.lsp.callbacks["textDocument/typeDefinition"] = lsputil.typeDefinition_handler
-  --vim.lsp.callbacks["textDocument/implementation"] = lsputil.implementation_handler
-  vim.lsp.callbacks["textDocument/documentSymbol"] = lsputil.document_handler
-  vim.lsp.callbacks["workspace/symbol"] = lsputil.workspace_handler
+  vim.lsp.handlers["textDocument/codeAction"] = lsputil.code_action_handler
+  vim.lsp.handlers["textDocument/references"] = lsputil.references_handler
+  vim.lsp.handlers["textDocument/definition"] = lsputil.definition_handler
+  vim.lsp.handlers["textDocument/declaration"] = lsputil.declaration_handler
+  vim.lsp.handlers["textDocument/typeDefinition"] = lsputil.typeDefinition_handler
+  vim.lsp.handlers["textDocument/implementation"] = lsputil.implementation_handler
+  vim.lsp.handlers["textDocument/documentSymbol"] = lsputil.document_handler
+  vim.lsp.handlers["workspace/symbol"] = lsputil.workspace_handler
 end
-
--- lspconfig object
-local lspconfig = require'nvim_lsp'
-
--- function to attach completion and diagnostics
--- when setting up lsp
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-    require'diagnostic'.on_attach(client)
-end
-
--- Enable rust_analyzer
-lspconfig.gopls.setup({ on_attach=on_attach })
-lspconfig.pyls_ms.setup{}
-lspconfig.jdtls.setup{}
-lspconfig.bashls.setup{}
-lspconfig.rust_analyzer.setup{}
 EOF
-
-
-
-" Trigger completion with <tab>
-" found in :help completion
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-
-"inoremap <silent><expr> <TAB>
-"  \ pumvisible() ? "\<C-n>" :
-"  \ <SID>check_back_space() ? "\<TAB>" :
-"  \ completion#trigger_completion()
-
-nmap <tab> <Plug>(completion_smart_tab)
-nmap <s-tab> <Plug>(completion_smart_s_tab)
-
-" Visualize diagnostics
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_trimmed_virtual_text = '40'
-" Don't show diagnostics while in insert mode
-let g:diagnostic_insert_delay = 1
-
-" have a fixed column for the diagnostics to appear in
-" this removes the jitter when warnings/errors flow in
-set signcolumn=yes
-
-" Set updatetime for CursorHold
-" 300ms of no cursor movement to trigger CursorHold
-set updatetime=300
-" Show diagnostic popup on cursor hover
-autocmd CursorHold *.go,*.rst lua vim.lsp.util.show_line_diagnostics()
-
-" Goto previous/next diagnostic warning/error
-nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
-nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
-
-
 

@@ -50,7 +50,6 @@ Plug 'tjdevries/nlua.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 
 " Extentions to built-in LSP, for example, providing type inlay hints

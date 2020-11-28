@@ -11,12 +11,12 @@ let g:vista_close_on_jump=0
 let g:vista_log_file = stdpath('cache').'/vista.log'
 
 let g:vista_executive_for = {
-    \ 'go': 'ctags',
+    \ 'go': 'nvim_lsp',
     \ 'markdown': 'toc',
     \ }
 let g:vista_highlight_whole_line=1
 
 augroup lsp
   au!
-  au FileType go,rst,sh,java nmap \f  :Vista finder ctags<CR>
+  au FileType go,rst,sh,java nmap \f  :Vista finder nvim_lsp<CR>
 augroup END
