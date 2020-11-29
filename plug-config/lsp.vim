@@ -76,7 +76,7 @@ if executable('java') then
 end
 
 nvim_lsp.rust_analyzer.setup { on_attach = lsp_on_attach }
-nvim_lsp.bashls.setup { on_attach = lsp_on_attach }
+nvim_lsp.bashls.setup { on_attach = completion.on_attach }
 nvim_lsp.pyls_ms.setup  { on_attach = lsp_on_attach }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
