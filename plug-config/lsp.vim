@@ -52,7 +52,7 @@ local lsp_on_attach = function(client)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', '\r','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'i', 'gH', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 

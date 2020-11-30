@@ -1,6 +1,6 @@
 # File Navigation
 
-## Open Treeview (kyazdani42/nvim-tree.lua)
+## Open Treeview (nvim-tree.lua)
 ```
 Shortcuts
 =========
@@ -10,7 +10,7 @@ Shortcuts
 
 ```
 
-## Open File (FZF)
+## Open File (fzf)
 ```
 Shortcuts
 =========
@@ -22,6 +22,13 @@ Shortcuts
 Shortcuts
 =========
 gc
+```
+
+## Git Status
+```
+Shortcuts
+=========
+gs
 ```
 
 ## Toggle between the two last files (a.k.a alternative)
@@ -59,22 +66,27 @@ Shortcuts
 gd
 ```
 
-## List References
+## List References in Quicklist View
 ```
 gr
 ```
+## Rename (lsp)
+```
+gR
+```
+
 
 ## Code Action
 ```
-\a
+ga
 ```
 
-## Project scope search Word under Cursor
+## Project wide search Word under Cursor
 ```
-<sp + />
+<\ + w>
 ```
 
-## Project scope search Word under Cursor
+## Search Word under Cursor in current buffer
 ```
 /
 ```
