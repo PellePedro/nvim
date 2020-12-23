@@ -77,6 +77,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-dirvish'
+Plug 'vifm/vifm.vim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
