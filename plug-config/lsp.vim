@@ -12,6 +12,16 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 command! -bar -nargs=0 RestartLSP :lua vim.lsp.stop_client(vim.lsp.get_active_clients()); vim.cmd("edit")
 
+nnoremap ga  :lua vim.lsp.buf.code_action()<CR>
+nnoremap gd :lua vim.lsp.buf.definition()<CR>
+nnoremap gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap gr :lua vim.lsp.buf.references()<CR>
+nnoremap K :lua vim.lsp.buf.hover()<CR>
+nnoremap \r :lua vim.lsp.buf.rename()<CR>
+nnoremap gR :lua vim.lsp.buf.rename()<CR>
+nnoremap ]d :lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap [d :lua vim.lsp.diagnostic.goto_prev()<CR>
+
 lua <<EOF
 -- https://github.com/lewis6991/dotfiles/blob/master/nvim/lua/lsp.lua
 
@@ -43,18 +53,6 @@ vim.g.completion_trigger_keyword_length = 3
 -- On attach function.
 local lsp_on_attach = function(client)
   completion.on_attach(client)
-
-  -- Mappings/
-  local opts = {noremap = true, silent = true}
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', '\r','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'i', 'gH', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 
   -- Enable LSP omnifunc.
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
