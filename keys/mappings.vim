@@ -45,6 +45,7 @@ tnoremap <c-h> <C-\><C-n><C-w>h
 tnoremap <c-j> <C-\><C-n><C-w>j
 tnoremap <c-k> <C-\><C-n><C-w>k
 tnoremap <c-l> <C-\><C-n><C-w>l
+tnoremap <space>a <C-\><C-n><c-^>
 
 
 " ===
@@ -72,10 +73,9 @@ noremap  <silent> <C-s>  :update<CR>
 vnoremap <silent> <C-s>  <C-C>:update<CR><ESC>
 inoremap <silent> <C-s>  <C-O>:update<CR><ESC>
 
-" Map ctrl-q to save the buffer  and quit
-noremap  <silent> <C-q>  :update<CR>:q<CR>
-vnoremap <silent> <C-q>  <C-C>:update<CR>:q<CR>
-inoremap <silent> <C-q>  <ESC>
+noremap  <silent> <C-w>  :Vifm<CR>
+noremap  <silent> <C-q>  :q<CR>
+tnoremap <silent> <C-q>  :q<CR>
 
 inoremap <silent> <C-[>  <ESC>
 "
@@ -113,8 +113,8 @@ nmap <space>gf :diffget //2<CR>
 nmap <space>gj :diffget //3<CR>
 nmap <space>h  :History<CR>
 nmap <space>l  :set list!<CR>
-nmap <silent>  <space>T :vertical botright Ttoggle<cr><C-w>l
-nmap <silent>  <space>t :botright Ttoggle<cr><C-w>j
+nmap <silent>  <space>t :Ttoggle<CR>
+nmap <silent>  <space>T :botright Ttoggle<cr><C-w>j
 nmap <space>s  :Gstatus<CR>
 nmap <space>u  :UndotreeToggle<CR>
 nmap <space>w  :%s/\s\+$//e<CR>
