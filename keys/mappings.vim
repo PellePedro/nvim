@@ -1,7 +1,7 @@
 " vim:fdm=marker
 let mapleader = "\\"
 
-nmap <space>v :e $MYVIMRC<CR>
+nmap \v :e $MYVIMRC<CR>
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " ======================= General Mappings ============================== {{{
@@ -73,12 +73,12 @@ noremap  <silent> <C-s>  :update<CR>
 vnoremap <silent> <C-s>  <C-C>:update<CR><ESC>
 inoremap <silent> <C-s>  <C-O>:update<CR><ESC>
 
-noremap  <silent> <C-w>  :Vifm<CR>
 noremap  <silent> <C-q>  :q<CR>
 tnoremap <silent> <C-q>  :q<CR>
 
 inoremap <silent> <C-[>  <ESC>
-"
+nnoremap <C-t> :Ttoggle<CR>i
+noremap  <silent> <C-w>  :Vifm<CR>
 "
 " }}}
 "
@@ -98,9 +98,7 @@ nmap \b  :Buffers<CR>
 nmap \cd :cd %:p:h<cr>:pwd<cr>
 nmap \w :execute "Rg "."<C-r><C-w>"<cr>
 nmap \q :cclose<CR>
-tnoremap \t <C-\><C-N>:Ttoggle<CR>
-nnoremap \t :tabnew \| :Ttoggle<CR>
-nmap \v :Vifm<CR>
+nnoremap \t :Ttoggle<CR>i
 " Count number of matches of word under cursor
 nmap \n *<C-O>:%s///gn<CR>``
 
