@@ -35,26 +35,8 @@ return require('packer').startup(function(use)
     }
 
 
-
---    use {
---       'gruvbox-community/gruvbox',
---        config = function()
---          vim.g.gruvbox_contrast_dark = 'hard'
---          vim.g.gruvbox_contrast_light = 'soft'
---          vim.g.gruvbox_invert_selection = 0
---          vim.g.gruvbox_italic = 1
---          vim.g.gruvbox_italicize_comments = 1
---          vim.cmd("colorscheme gruvbox")
---          vim.cmd("hi LuaTreeFolderName guifg=#cbe3e7  gui=bold")
---        end
---    }
-
-
     use 'vifm/vifm.vim'
     use 'justinmk/vim-dirvish'
-    -- FZF integration.
-    use {'junegunn/fzf', run = function() vim.fn['fzf#install()'](0) end}
-    use {'junegunn/fzf.vim'}
 
     use 'jiangmiao/auto-pairs'
     -- Information
@@ -70,7 +52,6 @@ return require('packer').startup(function(use)
     use 'kosayoda/nvim-lightbulb'
     use 'mfussenegger/nvim-jdtls'
     use 'kabouzeid/nvim-lspinstall'
-
 
     -- debugging
     use {

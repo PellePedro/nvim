@@ -5,7 +5,7 @@ local actions = require('telescope.actions')
 require('telescope').load_extension('media_files')
 require('telescope').setup {
     defaults = {
-        vimgrep_arguments = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+        find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
         prompt_position = "top",
         prompt_prefix = " ",
         selection_caret = " ",
@@ -70,4 +70,4 @@ require('telescope').setup {
             find_cmd = "rg" -- find command (defaults to `fd`)
         }
     }
-} 
+}
