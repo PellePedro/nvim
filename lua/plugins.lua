@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
+    -- My Plugins ====================================
     -- Theme
     use 'vim-airline/vim-airline'
     use {
@@ -34,11 +35,17 @@ return require('packer').startup(function(use)
       end
     }
 
-
     use 'vifm/vifm.vim'
     use 'justinmk/vim-dirvish'
+    use { 'ntpeters/vim-better-whitespace',
+        config = function()
+            vim.g["better_whitespace_enabled"] = 1
+        end
+    }
 
     use 'jiangmiao/auto-pairs'
+    -- My Plugins ====================================
+
     -- Information
     -- use 'nanotee/nvim-lua-guide'
 
@@ -116,7 +123,7 @@ return require('packer').startup(function(use)
     use 'mattn/webapi-vim'
 
     -- Webdev
-    -- TODO add back when I learn it better 
+    -- TODO add back when I learn it better
     -- use 'gennaro-tedesco/nvim-jqx'
     -- use 'turbio/bracey.vim'
 
@@ -153,7 +160,7 @@ return require('packer').startup(function(use)
     --use 'kristijanhusak/vim-dadbod-ui'
     --use 'kristijanhusak/vim-dadbod-completion'
 
-    -- Documentation Generator 
+    -- Documentation Generator
     --use {'kkoomen/vim-doge', run = ':call doge#install()'}
 
     -- TODO put this back when stable for indent lines
