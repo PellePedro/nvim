@@ -8,13 +8,26 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 vnoremap <silent> jj <ESC>
 inoremap <silent> jj <ESC>
 
-" stay on current word
+" Avoid shift to enter command mode
+nnoremap ; :
+vnoremap ; :
+
+" sourround
+nmap <leader>" ysiw"
+nmap <leader>' ysiw'
+
+nmap .p "0p
+nmap .P "0P
+
+"stay on current word
 nnoremap * *``
 
 nnoremap j gj
 nnoremap k gk
 nnoremap $ g$
 nnoremap 0 g0
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Center Scrolling
 noremap <C-d> <C-d>zz
@@ -28,6 +41,14 @@ nnoremap <CR> :nohl<CR>
 " prevent entering ex mode accidentally
 nnoremap Q <Nop>
 "
+" -- Tab switch buffer
+" vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
+" vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+" vim.api.nvim_set_keymap('v', '<TAB>', '>gv', {noremap = true, silent = true})
+" vim.api.nvim_set_keymap('v', '<S-TAB>', '<gv', {noremap = true, silent = true})
+nnoremap <TAB> :bnext<CR>
+noremap <S-TAB> :bprevious<CR>
+"
 " Tab/shift-tab to indent/outdent in visual mode.
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
@@ -37,7 +58,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 "
-nnoremap Y y$
+"nnoremap Y y$
 "
 " Terminal Mapping
 tnoremap <Esc> <C-\><C-n>
@@ -78,7 +99,7 @@ tnoremap <silent> <C-q>  :q<CR>
 
 inoremap <silent> <C-[>  <ESC>
 nnoremap <C-t> :Ttoggle<CR>i
-noremap  <silent> <C-w>  :Vifm<CR>
+"noremap  <silent> <C-w>  :Vifm<CR>
 "
 " }}}
 "
@@ -140,4 +161,13 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
 " Open up lazygit
-noremap \g :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+"noremap \g :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+
+
+" Telescope
+nmap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+nmap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
+nmap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nmap <leader>v <cmd>lua require('telescope.builtin').find_files({cwd= '~/.config/nvim'})<cr>
+nmap <leader>1 <cmd>lua require('telescope.builtin.lsp').document_symbols()<cr>
+nmap <leader>2 <cmd>lua require('telescope.builtin.lsp').workspace_symbols()<cr>
