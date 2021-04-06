@@ -1,0 +1,65 @@
+
+
+"set timeoutlen=100                      " By default timeoutlen is 1000 ms
+"set updatetime=300                      " Faster completion
+set autoindent                          " Good auto indent
+set background=dark                     " tell vim what the background color looks like
+set clipboard=unnamedplus               " Copy paste between vim and everything else
+set cmdheight=2
+set colorcolumn=100
+set conceallevel=0                      " So that I can see `` in markdown files
+set cursorline                          " Enable highlighting of the current line
+set encoding=utf-8                      " The encoding displayed
+set expandtab                           " Converts tabs to spaces
+set fileencoding=utf-8                  " The encoding written to file
+set formatoptions-=cro                  " Stop newline continution of comments
+set hidden                              " Required to keep multiple buffers open multiple buffers
+set incsearch
+set iskeyword+=-                      	" treat dash separated words as a word text object"
+set laststatus=2                        " Always display the status line
+set mouse=a                             " Enable your mouse
+set nobackup                            " This is recommended by coc
+set noshowmode                          " We don't need to see things like -- INSERT -- anymore
+set noswapfile
+set wrap                              " Display long lines as just one line
+set nowritebackup                       " This is recommended by coc
+set number relativenumber               " Line numbers
+set pumheight=10                        " Makes popup menu smaller
+set ruler              	                " Show the cursor position all the time
+set shiftwidth=2                        " Change the number of space characters inserted for indentation
+set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
+set showtabline=2                       " Always show tabs
+set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
+set smartindent                         " Makes indenting smart
+set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
+set splitbelow                          " Horizontal splits will automatically be below
+"set splitright                          " Vertical splits will automatically be to the right
+set undodir=~/.vim/undodir              " undo directory
+set undofile
+set t_Co=256                            " Support 256 colors
+set tabstop=2                           " Insert 2 spaces for a tab
+syntax enable                           " Enables syntax highlighing
+set diffopt+=vertical
+set termguicolors
+
+"" ========================= None printable characters {{{
+set list
+set listchars=tab:▶\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
+" }}}
+
+" You can't stop me
+cmap w!! w !sudo tee %
+
+
+set undodir=~/.vim/undodir
+set backupdir=~/.vim/backup
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+
