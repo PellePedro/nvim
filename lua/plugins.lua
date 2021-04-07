@@ -34,7 +34,8 @@ return require('packer').startup(function(use)
           vim.g["&t_8b"] = "<Esc>[48;2;%lu;%lu;%lum]"
       end
     }
-
+    use 'puremourning/vimspector'
+    use 'nvim-telescope/telescope-vimspector.nvim'
     use 'vifm/vifm.vim'
     use 'justinmk/vim-dirvish'
     use { 'ntpeters/vim-better-whitespace',
@@ -42,7 +43,6 @@ return require('packer').startup(function(use)
             vim.g["better_whitespace_enabled"] = 1
         end
     }
-
     use 'jiangmiao/auto-pairs'
     -- My Plugins ====================================
 
