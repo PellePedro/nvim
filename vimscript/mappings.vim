@@ -1,7 +1,6 @@
 " vim:fdm=marker
 let mapleader = "\\"
 
-nmap \v :e $MYVIMRC<CR>
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "

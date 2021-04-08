@@ -50,4 +50,32 @@ O.tsserver.autoformat = true
 -- json
 O.json.autoformat = true
 
--- create custom autocommand field (This would be easy with lua)
+-- custom autocommand field
+
+vim.api.nvim_command [[
+function! DeleteTrailingWS()
+exe 'normal mz'
+%s/\s\+$//ge
+exe 'normal `z'
+endfunction
+]]
+
+vim.cmd('set termguicolors')
+vim.cmd('set matchpairs=(:),{:},[:],<:>,`:`')
+vim.cmd('set listchars=tab:▶·,eol:¬,trail:⋅,extends:❯,precedes:❮')
+vim.cmd('set showbreak=↪')
+vim.cmd('set list')
+
+vim.cmd('au Filetype go setlocal tabstop=4 shiftwidth=4 noexpandtab softtabstop=4 colorcolumn=140')
+vim.cmd('au Filetype go,rst setlocal foldmethod=indent')
+vim.cmd('au Filetype go,rst setlocal foldlevel=1')
+vim.cmd('au Filetype go setlocal list')
+vim.cmd('au! TextChanged,TextChangedI *.go,*.rst,*.sh,*.java silent write')
+
+vim.api.nvim_exec([[
+  autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' |   exe "normal! g`\"" | endif
+  autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd TermOpen * if &buftype ==# 'terminal' | startinsert | endif
+  autocmd BufLeave term://* stopinsert
+  autocmd TermClose term://* if (expand('<afile>') !~ "fzf") | call nvim_input('<CR>') | endif
+]], false)

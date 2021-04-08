@@ -1,8 +1,5 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 
--- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':Vifm<CR>', {noremap = true, silent = true})
-
 -- Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
@@ -17,41 +14,10 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
--- OSC52
-vim.api.nvim_set_keymap('n', '<C-c>', '[[<Cmd>OSCYank<CR>]]', {noremap = true})
-
--- Telescope
--- search entered word within project
-vim.api.nvim_set_keymap('n', '<Leader>ps', [[<Cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>]], { noremap = true, silent = true })
--- search by selected word
-vim.api.nvim_set_keymap('n', '<Leader>pw', [[<Cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>") })<CR>]], { noremap = true, silent = true })
--- buffer list window
-vim.api.nvim_set_keymap('n', '<Leader>pb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
--- search by filename in all project files
-vim.api.nvim_set_keymap('n', '<Leader>pf', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })
--- document symbols
-vim.api.nvim_set_keymap('n', '<Leader>1', [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR> ]], { noremap = true, silent = true })
--- workspace symbols
-vim.api.nvim_set_keymap('n', '<Leader>2', [[<Cmd>lua require('telescope.builtin.lsp').workspace_symbols()<CR>]], { noremap = true, silent = true })
 
 -- Debugging
 -- vim.api.nvim_set_keymap('n', '<Leader>dd', [[<Cmd>lua require('dap').continue()<CR>]], { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<Leader>db', [[<Cmd>lua require('dap').toggle_breakpoint()<CR>]], { noremap = true, silent = true })
-
-
-
-  --  '\' Mappings
-vim.cmd([[
-  nmap \\ :only<cr>
-  nmap \cd :cd %:p:h<cr>:pwd<cr>
-  nmap \w :execute "Rg "."<C-r><C-w>"<cr>
-  nmap \q :cclose<CR>
-  nnoremap \t :Ttoggle<CR>i
-
-  " Count number of matches of word under cursor
-  "nmap \n *<C-O>:%s///gn<CR>``
-]])
-
 
 
 -- General Mappings

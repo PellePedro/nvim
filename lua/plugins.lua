@@ -44,6 +44,9 @@ return require('packer').startup(function(use)
         end
     }
     use 'jiangmiao/auto-pairs'
+    use { 'AckslD/nvim-whichkey-setup.lua', 
+        requires = {'liuchengxu/vim-which-key'},
+    }
     -- My Plugins ====================================
 
     -- Information
@@ -140,7 +143,7 @@ return require('packer').startup(function(use)
     -- use 'kevinhwang91/rnvimr' -- telescope may fully replace you
 
     -- General Plugins
-    use 'liuchengxu/vim-which-key'
+    -- use 'liuchengxu/vim-which-key'
     use 'kevinhwang91/nvim-bqf'
     use 'airblade/vim-rooter'
     -- use 'ChristianChiarulli/dashboard-nvim'
