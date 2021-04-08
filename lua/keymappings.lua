@@ -15,10 +15,12 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
 
-
--- General Mappings
+-- Misc Mappings
 
 vim.cmd([[
+
+  :tnoremap <Esc> <C-\><C-n>
+
   vnoremap <silent> jj <ESC>
   inoremap <silent> jj <ESC>
 
@@ -43,7 +45,6 @@ vim.cmd([[
   nnoremap k gk
   nnoremap $ g$
   nnoremap 0 g0
-
 
   " Center Scrolling
   noremap <C-d> <C-d>zz

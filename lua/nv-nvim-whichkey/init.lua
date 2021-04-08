@@ -34,9 +34,11 @@ local leader_key_maps = {
   -- NOTE: direct mappings
   [','] = { ':w<CR>', 'Save' },
   [';'] = { ':Telescope commands<CR>', 'Commands' },
-  ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
   ['K'] = { [[<cmd>lua vim.lsp.buf.hover()<CR>]] , 'LSP Doc'},
-  ['y'] = { ':OSCYank <CR>', 'OSCYank' },
+  ['e'] = { ':Vifm<CR>', 'Vifm' },
+  ['t'] = { ':terminal<CR>', 'Open Terminal' },
+  ['y'] = { ':OSCYank<CR>', 'OSCYank' },
+  ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
   ['1'] = {
         [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR>]],
         'Document Symbols'
@@ -100,10 +102,10 @@ local leader_key_maps = {
     ['n'] = { ':Lspsaga diagnostic_jump_next<CR>', 'Next Diagnostic'},
     ['p'] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Previous Diagnostica'}
   },
-  ['e'] = {
-    ['name'] = '+Navigate',
-    ['e'] = { ':Vifm<CR>', 'Vifm' }
-  },
+--['e'] = {
+-- ['name'] = '+Navigate',
+--    ['e'] = { ':Vifm<CR>', 'Vifm' }
+--},
 
   -- NOTE: f is for find
   ['f'] = {
