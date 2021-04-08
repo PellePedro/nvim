@@ -6,7 +6,7 @@ require'nvim-treesitter.configs'.setup {
         enable = O.treesitter.highlight.enabled -- false will disable the whole extension
     },
     -- indent = {enable = true, disable = {"python", "html", "javascript"}},
-    indent = {enable = {"go"}},
+    indent = {enable = true },
     playground = {
         enable = O.treesitter.playground.enabled,
         disable = {},
