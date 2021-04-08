@@ -32,9 +32,10 @@ vim.api.nvim_exec([[
 -- NOTE: leader key mappings
 local leader_key_maps = {
   -- NOTE: direct mappings
-  [','] = { ':w<CR>', 'save' },
-  ['.'] = { ':e $MYVIMRC<CR>', 'open-init' },
-  [';'] = { ':Telescope commands<CR>', 'commands' },
+  [','] = { ':w<CR>', 'Save' },
+  [';'] = { ':Telescope commands<CR>', 'Commands' },
+  ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
+  ['K'] = { [[<cmd>lua vim.lsp.buf.hover()<CR>]] , 'LSP Doc'},
   ['y'] = { ':OSCYank <CR>', 'OSCYank' },
   ['1'] = {
         [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR>]],
@@ -45,20 +46,24 @@ local leader_key_maps = {
         'Workspace Symbols'
   },
 
-  -- NOTE: a is for actions
-  ['a'] = {
-    ['name'] = '+actions',
-    ['c'] = { ':Vifm', 'colorizer' }
+  ['c'] = {
+    ['name'] = '+LSP',
+    ['a'] = { ':Lspsaga code_action<CR>', 'Code Action' },
+    ['d'] = { [[<cmd>lua vim.lsp.buf.definition()<CR>]],  'Goto Definition'},
+    ['D'] = { [[<cmd>lua vim.lsp.buf.declaration()<CR>]], 'Goto Declaration'},
+    ['r'] = { [[<cmd>lua vim.lsp.buf.references()<CR>]],  'Goto References'},
+    ['i'] = { [[<cmd>lua vim.lsp.buf.implementation()<CR>]], 'Goto Implementation'},
+    ['n'] = { ':Lspsaga diagnostic_jump_next<CR>', 'Next Diagnostic'},
+    ['p'] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Previous Diagnostica'}
   },
-
   ['e'] = {
-    ['name'] = '+navigate',
-    ['e'] = { ':Vifm<CR>', 'Vivm' }
+    ['name'] = '+Navigate',
+    ['e'] = { ':Vifm<CR>', 'Vifm' }
   },
 
   -- NOTE: f is for find
   ['f'] = {
-    ['name'] = '+find',
+    ['name'] = '+Find',
     ['b'] = { [[<cmd>lua require('telescope.builtin').buffers()<CR>]], 'Buffers' },
     ['c'] = {
         [[<cmd>lua require('telescope.builtin').find_files{cwd='~/.config/nvim'}<CR>]],
@@ -78,6 +83,11 @@ local leader_key_maps = {
     }
 
   },
+  ['g'] = {
+    ['name'] = '+Git',
+    ['s'] = { ':Gstatus<CR>', 'Git Status' }
+  },
+
 }
 
 -- local local_leader_plug_keymaps = {

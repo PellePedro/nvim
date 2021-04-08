@@ -52,6 +52,8 @@ O.json.autoformat = true
 
 -- custom autocommand field
 
+
+vim.g.mapleader = '\\'
 vim.api.nvim_command [[
 function! DeleteTrailingWS()
 exe 'normal mz'
