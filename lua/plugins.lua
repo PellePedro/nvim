@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
       "nvim-telescope/telescope-dap.nvim",
       setup = function()
         require("nv-nvim-dap")
+		require('telescope').load_extension('dap')
       end,
     }
 

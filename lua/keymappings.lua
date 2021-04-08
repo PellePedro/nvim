@@ -15,10 +15,6 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
 
--- Debugging
--- vim.api.nvim_set_keymap('n', '<Leader>dd', [[<Cmd>lua require('dap').continue()<CR>]], { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<Leader>db', [[<Cmd>lua require('dap').toggle_breakpoint()<CR>]], { noremap = true, silent = true })
-
 
 -- General Mappings
 
@@ -47,8 +43,6 @@ vim.cmd([[
   nnoremap k gk
   nnoremap $ g$
   nnoremap 0 g0
-  vnoremap J :m '>+1<CR>gv=gv
-  vnoremap K :m '<-2<CR>gv=gv
 
 
   " Center Scrolling

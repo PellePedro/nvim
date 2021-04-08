@@ -46,6 +46,50 @@ local leader_key_maps = {
         'Workspace Symbols'
   },
 
+  ['d'] = {
+    ['name'] = '+debug',
+    ['d'] = {
+		[[<Cmd>lua require('dap').continue()<CR>]],
+        'Start Debugging'
+    },
+    ['b'] = {
+		[[<Cmd>lua require('dap').toggle_breakpoint()<CR>]],
+        'Toggle Breakpoint'
+    },
+    ['r'] = {
+		[[<Cmd>:lua require'dap'.repl.toggle({height=15})<CR>]],
+        'Open Repl'
+    },
+    ['s'] = {
+		[[<Cmd>lua require('dap.ui.variables').scopes()<CR>]],
+        'Show Variables'
+    },
+    ['1'] = {
+		[[<Cmd>lua require'dap'.step_over()<CR>]],
+        'Step Over'
+    },
+    ['2'] = {
+		[[<Cmd>lua require'dap'.step_into()<CR>]],
+        'Step Into'
+    },
+    ['3'] = {
+		[[<Cmd>lua require'dap'.step_out()]],
+        'Step Out'
+    },
+    ['3'] = {
+		[[<Cmd>lua require'dap'.step_out()]],
+        'Step Out'
+    },
+    ['e'] = {
+		[[<Cmd>lua require('lsp-diagnostics').errors_to_quickfix()]],
+        'LSP Errors'
+    },
+    ['w'] = {
+		[[<Cmd>lua require('lsp-diagnostics').warnings_to_quickfix()]],
+        'LSP Warnings'
+    },
+  },
+
   ['c'] = {
     ['name'] = '+LSP',
     ['a'] = { ':Lspsaga code_action<CR>', 'Code Action' },
