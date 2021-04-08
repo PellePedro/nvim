@@ -1,9 +1,8 @@
 # Nvim Configuration
 This Configuration is based on Christian Chiarulli's [nvcode](https://github.com/ChristianChiarulli/nvcode) 
 
-## Install
 
-## Complile the latest version of Neovim
+## Install the nightly version of Neovim
 
 ### Ubuntu
 ```bash
@@ -23,6 +22,26 @@ cd ~
 sudo rm -r neovim
 
 ```
+
+## OSX
+```
+brew install "neovim-nightly"
+```
+
+## Install Pugins and Configuration
+
+
+### Download and Install Fira Code Fonts
+```
+cat <<- EOF | sh
+	curl -L https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete.ttf?raw=true -o FiraCode-Light.ttf
+	curl -L https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Medium/complete/Fira%20Code%20Medium%20Nerd%20Font%20Complete.ttf?raw=true -o FiraCode-Medium.ttf
+	curl -L https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf?raw=true -o FiraCode-Regular.ttf
+	curl -L https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf?raw=true -o FiraCode-Retina.ttf
+EOF
+
+```
+
 
 ### Clone Repository
 
