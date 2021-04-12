@@ -23,6 +23,26 @@ echo "**************************************************************************
 command -v brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "**************************************************************************"
+echo "******************Application and tool installation...********************"
+echo "**************************************************************************"
+#brew tap Homebrew/bundle
+#brew bundle --file=$NVIM_HOME/utils/config/Brewfile
+brew install coreutils
+brew install ctags
+brew install fzf
+brew install go
+brew install jq
+brew install nodejs
+brew install npm
+brew install ripgrep
+brew install tmux
+brew install vifm
+brew install wget
+brew install zsh
+brew install --cask neovim-nightly
+brew install --cask  font-fira-code
+
+echo "**************************************************************************"
 echo "******************Git Install...******************************************"
 echo "**************************************************************************"
 command -v git >/dev/null 2>&1 || brew install git
@@ -45,12 +65,6 @@ mkdir -p ${HOME}/.vifm/colors
 cp $NVIM_HOME/utils/config/vifm/vifmrc $HOME/.vifm/vifmrc
 cp $NVIM_HOME/utils/config/vifm/colors/nord.vifm $HOME/.vifm/colors/nord.vifm
 
-
-echo "**************************************************************************"
-echo "******************Application and tool installation...********************"
-echo "**************************************************************************"
-brew tap Homebrew/bundle
-brew bundle --file=$NVIM_HOME/utils/config/Brewfile
 
 
 echo "**************************************************************************"
