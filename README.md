@@ -43,22 +43,21 @@ EOF
 ```
 
 
+### Install Homebrew Formulas and NVIM on MAC
+```
+bash <( curl -s  https://raw.githubusercontent.com/PellePedro/nvim/nvcode/utils/installer/install_mac.sh)
+
+```
+
 ### Clone Repository
 
 ```
 git clone --depth=0 --single-branch --branch nvcode https://github.com/pellepedro/nvim.git ~/.config/nvim
 
 ```
-- Launch nvim and run `:PackerInstall`
 
-
-## LSP
-
-To install a supported language server:
-
-```
-  :LspInstall go
-  :LspInstall python
-  :LspInstall rust
-```
-
+Launch nvim and run commands: 
+- `:PackerInstall`
+- ':PackerCompile'
+- ':LspInstall go'
+- ':LspInstall python'
