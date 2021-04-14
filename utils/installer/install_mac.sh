@@ -27,7 +27,6 @@ echo "******************Application and tool installation...********************
 echo "**************************************************************************"
 #brew tap Homebrew/bundle
 #brew bundle --file=$NVIM_HOME/utils/config/Brewfile
-brew install coreutils
 brew install ctags
 brew install fzf
 brew install go
