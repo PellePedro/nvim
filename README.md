@@ -24,11 +24,9 @@ sudo rm -r neovim
 ```
 
 ## OSX
-```
-brew install "neovim-nightly"
-```
 
-## Install Pugins and Configuration
+### Install Iterm2
+[Iterm2](https://iterm2.com)
 
 
 ### Download and Install Fira Code Fonts
