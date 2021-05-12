@@ -1,60 +1,69 @@
 ## Nvim Configuration
 
-
-
-## Install 
+## Install as container image 
 ```
-git clone --depth=0 https://github.com/pellepedro/nvim.git ~/.config/nvim
+docker pull docker.io/pellepedro/nvim:latest
 ```
 
+## Recommended Start Script
+```
+copy <<EOF > start_nvim.sh
+#/bin/bash
 
-## Custom Keymapping
+CONTAINER=docker.io/pellepedro/nvim:latest
+docker run -it --rm --privileged --name dev \
+    -v ${HOME}/.config/jesseduffield/lazygit:/home/devops/.config/lazygit:z \
+    -v ${HOME}/.gitconfig:/home/devops/.gitconfig:z \
+    -v ${HOME}/.netrc:/home/devops/.netrc:z \
+    -v ${HOME}/.ssh:/home/devops/.ssh:z \
+    -v ${HOME}/.gitconfig:/home/devops/.gitconfig:z \
+    -v $(pwd):/home/devops/host:rw \
+    -v ${HOME}/go/pkg/mod:/home/devops/go/pkg/mod:z \
+    ${CONTAINER}
+EOF
 
-### \
+chmod +x start_nvim.sh 
+```
+
+## Command Line Tools
 ```
 | key      | Mapping                       |
 |----------|-------------------------------|
-|  \ + \   | Show only this buffer         |
-|  \ + v   | Open init.vim                 |
-|  \ + w   | Run ripgrep with <cword>       |
-|  \ + d   | Show diagnostics              |
-|  \ + r   | Cocsearch <cword>             |
-|  \ + f   | Show type information         | 
-|  \ + n   | number of matches for <cword> | 
+|  vifm    | vi file manager               |
+|  rg      | ripgrep                       |
 
 ```
 
-### g
+## Keymapping
+
+### Leader/Magic keymapping '\\'
 ```
 | key      | Mapping                       |
 |----------|-------------------------------|
-|  [ + g   | LSP disgnostic prev           |
-|  ] + g   | LSP diagnostic next error     |
-|  ] + c   | LSP fox current error         |
-|  g + b   | git checkout/track branch     |
-|  g + d   | LSP show diagnostics          |
-|  g + c   | git show commits              |
-|  g + d   | Goto definition               |
-|  g + f   | Goto file                     |
-|  g + h   | Show documentation            |
-|  g + i   | LSP goto implementation       |
-|  g + n   | Show diagnostics next         |
-|  g + p   | Show diagnostic prev error    |
-|  g + r   | LSP show reference            |
-|  g + s   | git status                    |
-|  g + y   | Goto type                     |
+|  \ + fb  | List buffers                  |
+|  \ + ff  | List file                     |
+|  \ + fs  | Open fuzzy find file          |
+|  \ + ff  | Open init.vim                 |
+|  \ + gs  | Show GIt Status               |
+|  \ + 2   | LSP List Document Symbols     |
+|  \ + r   | LSP Rename                    |
+|  \ + ca  | LSP code action               |
+|  \ + cd  | LSP goto definition           |
+|  \ + ci  | LSP goto implementation       |
+|  \ + cr  | LSP List references           |
 ```
 
-### <space>
 
+### keymapping hints
 ```
-| key      | Mapping                          |
-|----------|----------------------------------|
-| <sp>a    | Toggle last file                 |
-| <sp>b    | Show Buffers                     |
-| <sp>d    | Fetch data by http               |
-| <sp>l    | Toggle none printable characters |
-| <sp>u    | Show undotree                    |
-| <sp>w    | Trim trailing whitespace         |
-| <sp>/    | Search with Rg                   |
+| key      | Mapping                       |
+|----------|-------------------------------|
+|  ciw     | change Inside Word            |
+|  ci"     | change Inside ""              |
+|  cf<c>   | change upto and including <n> |
+|  ct<n>   | change upto not including <n> |
+|  diw     | delete Inside Word            |
+|  di"     | delete Inside ""              |
+|  df<c>   | delete upto and including <n> |
+|  dt<n>   | delete upto not including <n> |
 ```
