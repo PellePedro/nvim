@@ -47,51 +47,6 @@ local leader_key_maps = {
         [[<Cmd>lua require('telescope.builtin.lsp').workspace_symbols()<CR>]],
         'Workspace Symbols'
   },
-
-  ['d'] = {
-    ['name'] = '+debug',
-    ['d'] = {
-		[[<Cmd>lua require('dap').continue()<CR>]],
-        'Start Debugging'
-    },
-    ['b'] = {
-		[[<Cmd>lua require('dap').toggle_breakpoint()<CR>]],
-        'Toggle Breakpoint'
-    },
-    ['r'] = {
-		[[<Cmd>:lua require'dap'.repl.toggle({height=15})<CR>]],
-        'Open Repl'
-    },
-    ['s'] = {
-		[[<Cmd>lua require('dap.ui.variables').scopes()<CR>]],
-        'Show Variables'
-    },
-    ['1'] = {
-		[[<Cmd>lua require'dap'.step_over()<CR>]],
-        'Step Over'
-    },
-    ['2'] = {
-		[[<Cmd>lua require'dap'.step_into()<CR>]],
-        'Step Into'
-    },
-    ['3'] = {
-		[[<Cmd>lua require'dap'.step_out()]],
-        'Step Out'
-    },
-    ['3'] = {
-		[[<Cmd>lua require'dap'.step_out()]],
-        'Step Out'
-    },
-    ['e'] = {
-		[[<Cmd>lua require('lsp-diagnostics').errors_to_quickfix()]],
-        'LSP Errors'
-    },
-    ['w'] = {
-		[[<Cmd>lua require('lsp-diagnostics').warnings_to_quickfix()]],
-        'LSP Warnings'
-    },
-  },
-
   ['c'] = {
     ['name'] = '+LSP',
     ['a'] = { ':Lspsaga code_action<CR>', 'Code Action' },
@@ -102,10 +57,6 @@ local leader_key_maps = {
     ['n'] = { ':Lspsaga diagnostic_jump_next<CR>', 'Next Diagnostic'},
     ['p'] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Previous Diagnostica'}
   },
---['e'] = {
--- ['name'] = '+Navigate',
---    ['e'] = { ':Vifm<CR>', 'Vifm' }
---},
 
   -- NOTE: f is for find
   ['f'] = {
@@ -127,7 +78,6 @@ local leader_key_maps = {
         [[<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>]],
         'Grep For >'
     }
-
   },
   ['g'] = {
     ['name'] = '+Git',
@@ -136,17 +86,4 @@ local leader_key_maps = {
 
 }
 
--- local local_leader_plug_keymaps = {
---  ['s'] = {
---    ['name'] = '+sideways',
---  }
--- }
-
---local leader_plug_keymaps = {
---  ['c'] = {},
---}
-
---wk.register_keymap('localleader', local_leader_key_maps, { silent = true })
---wk.register_keymap('localleader', local_leader_plug_keymaps, { noremap = false })
 wk.register_keymap('leader', leader_key_maps, { silent = false })
---wk.register_keymap('leader', leader_plug_keymaps, { noremap = false })
