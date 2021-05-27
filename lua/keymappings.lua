@@ -19,7 +19,9 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
 vim.cmd([[
 
-  :tnoremap <Esc> <C-\><C-n>
+  " Move Between Windows
+
+  tnoremap <Esc> <C-\><C-n>
 
   vnoremap <silent> jj <ESC>
   inoremap <silent> jj <ESC>
