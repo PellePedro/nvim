@@ -1,9 +1,3 @@
---vim.cmd('source ~/.config/nvim/vimscript/settings.vim')
---vim.cmd('source ~/.config/nvim/vimscript/mappings.vim')
---vim.cmd('source ~/.config/nvim/vimscript/osc52.vim')
---vim.cmd('source ~/.config/nvim/vimscript/functions.vim')
---vim.cmd('source ~/.config/nvim/vimscript/autocmd.vim')
-
 -- General Mappings
 require('plugins')
 require('nv-globals')
@@ -12,7 +6,6 @@ vim.cmd('luafile ~/.config/nvim/nv-settings.lua')
 require('keymappings')
 require('settings')
  require('colorscheme')
--- require('nv-galaxyline')
 
 
 -- Plugins
@@ -20,12 +13,9 @@ require('nv-compe')
 require('nv-colorizer')
 require('nv-nvimtree')
 require('nv-treesitter')
-require('nv-barbar')
 require('nv-telescope')
 require('nv-lightbulb')
 require('nv-vim-rooter')
---require('nv-nvim-dap')
---require('nv-vimspector')
 require('nv-gitsigns')
 --require('nv-autopairs')
 require('nv-nvim-whichkey')
