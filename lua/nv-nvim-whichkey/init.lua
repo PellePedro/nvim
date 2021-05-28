@@ -36,6 +36,7 @@ local leader_key_maps = {
   [';'] = { ':Telescope commands<CR>', 'Commands' },
   ['K'] = { [[<cmd>lua vim.lsp.buf.hover()<CR>]] , 'LSP Doc'},
   ['e'] = { ':Vifm<CR>', 'Vifm' },
+  ['n'] = { ':NvimTreeToggle<CR>', 'NvimTree' },
   ['t'] = { ':terminal<CR>', 'Open Terminal' },
   ['y'] = { ':OSCYank<CR>', 'OSCYank' },
   ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
