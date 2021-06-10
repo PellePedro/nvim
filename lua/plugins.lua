@@ -20,6 +20,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
+	use 'sirver/ultisnips'
+	use 'honza/vim-snippets'
     -- My Plugins ====================================
     -- Theme
     use 'vim-airline/vim-airline'
@@ -84,7 +86,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    -- use 'kyazdani42/nvim-tree.lua'
 
     -- Color
     use 'christianchiarulli/nvcode-color-schemes.vim'
