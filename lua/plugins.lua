@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    -- use 'kyazdani42/nvim-tree.lua'
+    use 'kyazdani42/nvim-tree.lua'
 
     -- Color
     use 'christianchiarulli/nvcode-color-schemes.vim'
