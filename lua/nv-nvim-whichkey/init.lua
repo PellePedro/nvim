@@ -58,7 +58,26 @@ local leader_key_maps = {
     ['n'] = { ':Lspsaga diagnostic_jump_next<CR>', 'Next Diagnostic'},
     ['p'] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Previous Diagnostica'}
   },
-
+  ['d'] = {
+    ['name'] = "+Debug",
+	['b'] = { [[<cmd>:Telescope dap list_breakpoints<CR>]], 'Telescope List Breakpoints'},
+	['b'] = { [[<cmd>:Telescope dap commands<CR>]], 'Telescope Dap Commands'},
+	['f'] = { [[<cmd>:Telescope dap frames<CR>]], 'Telescope Dap Frames'},
+	['h'] = { [[<cmd>lua require('dap').toggle_breakpoint()<CR>]], 'Toggle Break Point'},
+    ['c'] = { [[<Cmd>:lua require'dap'.continue()<CR>]], 'Debug Continue'},
+    ['e'] = { [[<Cmd>:lua require'dap'.set_exception_breakpoints({"all"})<CR>]], 'Debug Continue'},
+	['?'] = { [[<cmd>:lua require'dap.ui.variables'.scopes()<CR>]], 'Variable Scopes'},
+	['i'] = { [[<cmd>:lua require'dap.ui.variables'.hover(function () return vim.fn.expand("<cexpr>") end)<CR>]], 'Variable Scopes'},
+	['j'] = { [[<cmd>]:lua require'dap'.down()<CR>]], 'Jump Down'},
+	['k'] = { [[<cmd>]:lua require'dap'.up()<CR>]], 'Jump Up'},
+	['r'] = { [[<cmd>:lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l]], 'Open Repl'},
+	['s'] = {
+    	['s'] = { [[<Cmd>:lua require'dap'.step_over()<CR>]],'Debug Step Over'},
+    	['i'] = { [[<Cmd>:lua require'dap'.step_in()<CR>]],  'Debug Step In'},
+    	['o'] = { [[<Cmd>:lua require'dap'.step_out()<CR>]], 'Debug Step Out'},
+	},
+	['q'] = { [[<cmd>:lua require("dapui").toggle()<CR>]], 'DAP UI'},
+  },
   -- NOTE: f is for find
   ['f'] = {
     ['name'] = '+Find',
@@ -82,7 +101,10 @@ local leader_key_maps = {
   },
   ['g'] = {
     ['name'] = '+Git',
-    ['s'] = { ':Gstatus<CR>', 'Git Status' }
+    ['s'] = { ':Gstatus<CR>', 'Git Status' },
+    ['g'] = { ':Neogit<CR>', 'Neogit' },
+    ['d'] = { ':DiffviewOpen<CR>', 'Diffview' },
+    ['p'] = { ':Neogit push<CR>', 'push' },
   },
 
 }

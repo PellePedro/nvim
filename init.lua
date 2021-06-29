@@ -17,8 +17,10 @@ require('nv-telescope')
 require('nv-lightbulb')
 require('nv-vim-rooter')
 require('nv-gitsigns')
+require('nv-diffview')
 --require('nv-autopairs')
 require('nv-nvim-whichkey')
+require('nv-nvim-dap')
 
 
 -- LSP

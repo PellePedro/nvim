@@ -9,6 +9,24 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
+--- Check if a file or directory exists in this path
+local function require_plugin(plugin)
+    local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
+
+    local plugin_path = plugin_prefix .. plugin .. "/"
+    --	print('test '..plugin_path)
+    local ok, err, code = os.rename(plugin_path, plugin_path)
+    if not ok then
+        if code == 13 then
+            -- Permission denied, but it exists
+            return true
+        end
+    end
+    --	print(ok, err, code)
+    if ok then vim.cmd("packadd " .. plugin) end
+    return ok, err, code
+end
+
 local my = function(file) require(file) end
 
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
@@ -36,8 +54,7 @@ return require('packer').startup(function(use)
           vim.g["&t_8b"] = "<Esc>[48;2;%lu;%lu;%lum]"
       end
     }
-    use 'puremourning/vimspector'
-    use 'nvim-telescope/telescope-vimspector.nvim'
+    -- use 'nvim-telescope/telescope-vimspector.nvim'
     use 'vifm/vifm.vim'
     use 'justinmk/vim-dirvish'
     use { 'ntpeters/vim-better-whitespace',
@@ -59,6 +76,13 @@ return require('packer').startup(function(use)
     use 'kabouzeid/nvim-lspinstall'
 
     use 'ojroques/vim-oscyank'
+
+	-- Debugging
+	use 'mfussenegger/nvim-dap'
+	use 'nvim-telescope/telescope-dap.nvim'
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+	use 'theHamsta/nvim-dap-virtual-text'
+	use 'janko/vim-test'
 
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
@@ -98,7 +122,9 @@ return require('packer').startup(function(use)
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use 'f-person/git-blame.nvim'
     use 'tpope/vim-fugitive'
-    use 'tpope/vim-rhubarb'
+    use 'junegunn/gv.vim'
+    use 'TimUntersberger/neogit'
+    use 'sindrets/diffview.nvim'
 
     -- Easily Create Gists
     use 'mattn/vim-gist'
