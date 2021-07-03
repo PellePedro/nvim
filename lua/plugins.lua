@@ -77,11 +77,18 @@ return require('packer').startup(function(use)
 
     use 'ojroques/vim-oscyank'
 
-	-- Debugging
-	use 'mfussenegger/nvim-dap'
-	use 'nvim-telescope/telescope-dap.nvim'
-	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-	use 'theHamsta/nvim-dap-virtual-text'
+    ----  Debugging
+    use 'mfussenegger/nvim-dap'
+    use 'nvim-telescope/telescope-dap.nvim'
+    use 'rcarriga/nvim-dap-ui'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'Pocco81/DAPInstall.nvim'
+    --    config = function()
+    --        local dap_install = require("dap-install")
+    --        dap_install.setup()
+    --        dap_install.config("go_delve_dbg", {})
+    --    end
+    --}
 	use 'janko/vim-test'
 
     -- Autocomplete
@@ -93,6 +100,7 @@ return require('packer').startup(function(use)
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'p00f/nvim-ts-rainbow'
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
     use 'nvim-treesitter/playground'

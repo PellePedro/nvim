@@ -5,7 +5,7 @@ require('nv-utils')
 vim.cmd('luafile ~/.config/nvim/nv-settings.lua')
 require('keymappings')
 require('settings')
- require('colorscheme')
+require('colorscheme')
 
 
 -- Plugins
