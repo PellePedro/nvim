@@ -142,4 +142,27 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'mbbill/undotree'
 
+
+    -- Symbol Outline
+    use {
+        'simrat39/symbols-outline.nvim',
+        cmd = 'SymbolsOutline',
+    }
+    -- diagnostics
+    use {
+        "folke/trouble.nvim",
+        cmd = 'TroubleToggle',
+    }
+
+    -- lsp root with this nvim-tree will follow you
+    use {
+        "ahmedkhalf/lsp-rooter.nvim",
+        event = "BufRead",
+        config = function()
+            require("lsp-rooter").setup()
+        end,
+    }
+
+
+
 end)

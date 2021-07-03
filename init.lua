@@ -21,6 +21,7 @@ require('nv-diffview')
 --require('nv-autopairs')
 require('nv-nvim-whichkey')
 require('nv-nvim-dap')
+require('nv-symbols-outline')
 
 
 -- LSP
