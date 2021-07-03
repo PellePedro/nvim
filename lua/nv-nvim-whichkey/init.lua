@@ -40,10 +40,7 @@ local leader_key_maps = {
   ['t'] = { ':terminal<CR>', 'Open Terminal' },
   ['y'] = { ':OSCYank<CR>', 'OSCYank' },
   ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
-  ['1'] = {
-        [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR>]],
-        'Document Symbols'
-  },
+  ['1'] = { [[<cmd>:SymbolsOutline<CR>]], 'Symbols Outline'},
   ['2'] = {
         [[<Cmd>lua require('telescope.builtin.lsp').workspace_symbols()<CR>]],
         'Workspace Symbols'
@@ -55,8 +52,9 @@ local leader_key_maps = {
     ['D'] = { [[<cmd>lua vim.lsp.buf.declaration()<CR>]], 'Goto Declaration'},
     ['r'] = { [[<cmd>lua vim.lsp.buf.references()<CR>]],  'Goto References'},
     ['i'] = { [[<cmd>lua vim.lsp.buf.implementation()<CR>]], 'Goto Implementation'},
-    ['n'] = { ':Lspsaga diagnostic_jump_next<CR>', 'Next Diagnostic'},
-    ['p'] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Previous Diagnostica'}
+    ['n'] = { [[<cmd>:Lspsaga diagnostic_jump_next<CR>]], 'Next Diagnostic'},
+    ['p'] = { [[<cmd>:Lspsaga diagnostic_jump_prev<CR>]], 'Previous Diagnostica'},
+    ['s'] = { [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR>]], 'Document Symbols' },
   },
   ['d'] = {
     ['name'] = "+Debug",
