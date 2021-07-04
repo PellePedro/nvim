@@ -38,7 +38,7 @@ local leader_key_maps = {
   ['e'] = { ':Vifm<CR>', 'Vifm' },
   ['n'] = { ':NvimTreeToggle<CR>', 'NvimTree' },
   ['t'] = { ':terminal<CR>', 'Open Terminal' },
-  ['y'] = { ':OSCYank<CR>', 'OSCYank' },
+  ['y'] = { [[<cmd>:OSCYank<CR>]], 'OSCYank' },
   ['r'] = { [[<cmd>lua vim.lsp.buf.rename()<CR>]] , 'LSP Rename'},
   ['1'] = { [[<cmd>:SymbolsOutline<CR>]], 'Symbols Outline'},
   ['2'] = {
@@ -55,6 +55,7 @@ local leader_key_maps = {
     ['n'] = { [[<cmd>:Lspsaga diagnostic_jump_next<CR>]], 'Next Diagnostic'},
     ['p'] = { [[<cmd>:Lspsaga diagnostic_jump_prev<CR>]], 'Previous Diagnostica'},
     ['s'] = { [[<Cmd>lua require('telescope.builtin.lsp').document_symbols()<CR>]], 'Document Symbols' },
+    ['t'] = { [[<Cmd>:Trouble<CR>]], 'Document Symbols' },
   },
   ['d'] = {
     ['name'] = "+Debug",

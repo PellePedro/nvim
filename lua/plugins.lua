@@ -90,7 +90,6 @@ return require('packer').startup(function(use)
     --    end
     --}
 	use 'janko/vim-test'
-
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'mattn/emmet-vim'
@@ -102,20 +101,41 @@ return require('packer').startup(function(use)
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 	use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'p00f/nvim-ts-rainbow'
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
     use 'nvim-treesitter/playground'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'windwp/nvim-ts-autotag'
-
-    -- Icons
-     use 'kyazdani42/nvim-web-devicons'
-     use 'ryanoasis/vim-devicons'
 
     -- Telescope
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-media-files.nvim'
+	use 'nvim-telescope/telescope-fzy-native.nvim'
+
+    -- Icons
+     use 'kyazdani42/nvim-web-devicons'
+     use 'ryanoasis/vim-devicons'
+
+	use { "folke/trouble.nvim",
+  			config = function()
+    			require("trouble").setup {
+      				-- your configuration comes here
+      				-- or leave it empty to use the default settings
+      				-- refer to the configuration section below
+    			}
+  			end
+		}
+	use {
+  		"folke/todo-comments.nvim",
+  		requires = "nvim-lua/plenary.nvim",
+  		config = function()
+    		require("todo-comments").setup {
+      		-- your configuration comes here
+      		-- or leave it empty to use the default settings
+      		-- refer to the configuration section below
+    		}
+  		end
+	}
+
 
     -- Explorer
     use 'kyazdani42/nvim-tree.lua'
@@ -147,11 +167,6 @@ return require('packer').startup(function(use)
     use {
         'simrat39/symbols-outline.nvim',
         cmd = 'SymbolsOutline',
-    }
-    -- diagnostics
-    use {
-        "folke/trouble.nvim",
-        cmd = 'TroubleToggle',
     }
 
     -- lsp root with this nvim-tree will follow you
