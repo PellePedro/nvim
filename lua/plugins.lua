@@ -177,7 +177,6 @@ return require('packer').startup(function(use)
             require("lsp-rooter").setup()
         end,
     }
-
-
+	use { "tpope/vim-surround" }
 
 end)
