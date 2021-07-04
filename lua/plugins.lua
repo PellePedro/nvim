@@ -179,4 +179,11 @@ return require('packer').startup(function(use)
     }
 	use { "tpope/vim-surround" }
 
+
+        -- Lazygit
+    use {
+        "kdheepak/lazygit.nvim",
+        cmd = "LazyGit",
+    }
+
 end)

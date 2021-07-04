@@ -60,7 +60,7 @@ local leader_key_maps = {
   ['d'] = {
     ['name'] = "+Debug",
 	['b'] = { [[<cmd>:Telescope dap list_breakpoints<CR>]], 'Telescope List Breakpoints'},
-	['b'] = { [[<cmd>:Telescope dap commands<CR>]], 'Telescope Dap Commands'},
+	['d'] = { [[<cmd>:Telescope dap commands<CR>]], 'Telescope Dap Commands'},
 	['f'] = { [[<cmd>:Telescope dap frames<CR>]], 'Telescope Dap Frames'},
 	['h'] = { [[<cmd>lua require('dap').toggle_breakpoint()<CR>]], 'Toggle Break Point'},
     ['c'] = { [[<Cmd>:lua require'dap'.continue()<CR>]], 'Debug Continue'},
@@ -102,6 +102,7 @@ local leader_key_maps = {
     ['name'] = '+Git',
     ['s'] = { ':Gstatus<CR>', 'Git Status' },
     ['g'] = { ':Neogit<CR>', 'Neogit' },
+    ['l'] = { ':LazyGit<CR>', 'Lazygit' },
     ['d'] = { ':DiffviewOpen<CR>', 'Diffview' },
     ['p'] = { ':Neogit push<CR>', 'push' },
   },
