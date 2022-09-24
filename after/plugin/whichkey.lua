@@ -90,11 +90,11 @@ local m_mappings = {
   a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
   b = { "<cmd>BookmarkToggle<cr>", "Toggle" },
   c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-  f = { "<cmd>:set foldmethod=indent<cr>", "Clear" },
+  f = { "<cmd>:set foldmethod=indent<cr>", "Set Foldmethod" },
   m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
   ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
   [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+  l = { "<cmd>lua require('bfs').open()<cr>", "Buffers" },
   j = { "<cmd>silent BookmarkNext<cr>", "Next" },
   s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
   k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
@@ -111,35 +111,14 @@ local mappings = {
   -- ["1"] = "which_key_ignore",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
   b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  e = { "<cmd>:NeoTreeShowToggle<cr>", "Explorer" },
   v = { "<cmd>vsplit<cr>", "vsplit" },
   h = { "<cmd>split<cr>", "split" },
   w = { "<cmd>w<CR>", "Write" },
   -- h = { "<cmd>nohlsearch<CR>", "No HL" },
-  q = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
+  q = { '<cmd>lua require("functions").smart_quit()<CR>', "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
-  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-
-  -- :lua require'lir.float'.toggle()
-  -- ["f"] = {
-  --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Find files",
-  -- },
-  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  -- P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  -- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
-  -- ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
-  ["gy"] = "Link",
-
-  B = {
-    name = "Browse",
-    i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },
-    b = { "<cmd>Browse<cr>", "Browse" },
-    d = { "<cmd>BrowseDevdocsSearch<cr>", "Devdocs" },
-    f = { "<cmd>BrowseDevdocsFiletypeSearch<cr>", "Devdocs Filetype" },
-    m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
-  },
 
   p = {
     name = "Packer",
@@ -154,23 +133,13 @@ local mappings = {
     name = "Options",
     c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
     C = { '<cmd>lua vim.g.cmp_active=true<cr>', "Completion on" },
-    w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
-    r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-    l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-    s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
-    t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+    w = { '<cmd>lua require("functions").toggle_option("wrap")<cr>', "Wrap" },
+    r = { '<cmd>lua require("functions").toggle_option("relativenumber")<cr>', "Relative" },
+    l = { '<cmd>lua require("functions").toggle_option("cursorline")<cr>', "Cursorline" },
+    s = { '<cmd>lua require("functions").toggle_option("spell")<cr>', "Spell" },
+    t = { '<cmd>lua require("functions").toggle_tabline()<cr>', "Tabline" },
 
   },
-
-  s = {
-    name = "Session",
-    s = { "<cmd>SaveSession<cr>", "Save" },
-    r = { "<cmd>RestoreSession<cr>", "Restore" },
-    x = { "<cmd>DeleteSession<cr>", "Delete" },
-    f = { "<cmd>Autosession search<cr>", "Find" },
-    d = { "<cmd>Autosession delete<cr>", "Find Delete" },
-  },
-
   r = {
     name = "Replace",
     r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
@@ -222,7 +191,7 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
+    c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
     d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     w = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
@@ -253,7 +222,7 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
-    t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+    t = { '<cmd>lua require("functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
     u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
   },
 
@@ -331,4 +300,4 @@ local vmappings = {
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
-which_key.register(m_mappings, m_opts)
+-- which_key.register(m_mappings, m_opts)

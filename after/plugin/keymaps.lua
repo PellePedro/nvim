@@ -22,56 +22,44 @@ vim.cmd('set nolist')
 
 
 -- g mapping
-vim.api.nvim_set_keymap('v', 'gy', ':OSCYank<cr>', { silent = false })
+keymap('v', 'gy', ':OSCYank<cr>', { silent = false })
 
 -- Tab switch buffer
-vim.api.nvim_set_keymap("n", "<TAB>", ":bnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<S-TAB>", ":bprevious<CR>", { noremap = true, silent = true })
+keymap("n", "<TAB>", ":bnext<CR>", opts)
+keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 
 -- Window Movement
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 
 vim.api.nvim_exec([[
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
 ]], false)
 
-vim.api.nvim_set_keymap('n', '\\a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\1', [[<cmd>:AerialToggle<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\2', [[<cmd>:Telescope buffers<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\e', [[<cmd>:Neotree reveal toggle<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\t', [[<cmd>:TroubleToggle<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\r', [[<cmd>lua vim.lsp.buf.rename()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\s', [[<cmd>:BookmarksShowAll<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '\\y', [[<cmd>:OSCYank<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\t', [[<cmd>:TroubleToggle<CR>]], { noremap = true, silent = true })
+keymap('n', '\\a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]],opts)
+keymap('n', '\\1', [[<cmd>:AerialToggle<CR>]], opts)
+keymap('n', '\\2', [[<cmd>:Telescope buffers<CR>]], opts)
+keymap('n', '\\e', [[<cmd>:Neotree reveal toggle<CR>]], opts)
+keymap('n', '\\t', [[<cmd>:TroubleToggle<CR>]], opts)
+keymap('n', '\\r', [[<cmd>lua vim.lsp.buf.rename()<CR>]], opts)
+keymap('v', '\\y', [[<cmd>:OSCYank<CR>]], opts)
+keymap('n', '\\t', [[<cmd>:TroubleToggle<CR>]], opts)
 
-vim.api.nvim_set_keymap('n', '\\a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\b', [[<cmd>:GoBreakToggle<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\d', [[<cmd>:GoDebug<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\x', [[<cmd>:GoDbgStop<CR>]], { noremap = true, silent = true })
+keymap('n', '\\a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], opts)
+keymap('n', '\\b', [[<cmd>:GoBreakToggle<CR>]], opts)
+keymap('n', '\\d', [[<cmd>:GoDebug<CR>]], opts)
+keymap('n', '\\x', [[<cmd>:GoDbgStop<CR>]], opts)
 -- vim.api.nvim_set_keymap('n', '\\a', [[<C-^>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\l', [[<cmd>:set list!<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\w',
+keymap('n', '\\l', [[<cmd>:set list!<CR>]], opts)
+keymap('n', '\\w',
   [[<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>") })<CR>]],
-  { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '\\s',
+  opts)
+keymap('n', '\\s',
   [[<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>]],
-  { noremap = true, silent = true })
-
-vim.cmd('nnoremap <silent> <leader>y "+y')
-vim.cmd("nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>")
-vim.cmd("nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>")
-vim.cmd("nnoremap <silent> gR <cmd>lua vim.lsp.buf.references()<CR>")
-vim.cmd("nnoremap <silent> gr <cmd>Lspsaga lsp_finder<CR>")
-vim.cmd("nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>")
-vim.cmd(
-  "nnoremap <silent> gl <cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>"
-)
-
+  opts)
 
 vim.api.nvim_exec([[
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
